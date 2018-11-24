@@ -124,7 +124,7 @@ exports.sendGames = function (request, recipientId, token) {
                     elements: [{
                         title: "Wytypuj gdzie padnie wygrana",
                         subtitle: "Quiz",
-                        item_url: "http://www.voltaren.pl/",
+                        item_url: "https://www.lotto.pl/lotto/mapa-kolektur",
                         image_url: "https://cdn.pixabay.com/photo/2017/02/11/22/38/quiz-2058883_960_720.png",
                         buttons: [{
                             type: "web_url",
@@ -231,7 +231,7 @@ exports.sendCoins = function (request, recipientId, coins, token) {
     this.sendTextMessage(request, recipientId, "Masz " + coins + " monet.", token);
 };
 
-exports.sendPrizes = function () {
+exports.sendPrizes = function (request, recipientId, token) {
     var messageData = {
         messaging_type: "RESPONSE",
         recipient: {
