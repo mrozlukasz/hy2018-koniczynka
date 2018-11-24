@@ -11,7 +11,7 @@ const GAMES={
     GO_TO: {
         code : "GO_TO",
         progress: 0,
-        max: 3,
+        max: 1,
         state: "IN_PROGRESS"
     },
     GUESS_WINNERS: {
@@ -24,15 +24,23 @@ const GAMES={
 };
 
 
+exports.types = {
+    FIVE_IN_ROW:"FIVE_IN_ROW",
+    GO_TO:"GO_TO",
+    GUESS_WINNERS:"GUESS_WINNERS"
+};
+
 exports.subscribe = function (senderId, game) {
     model.getOrCreate(senderId)
         .then(state => {
-            if(_(state.games).filter({code:game}).any()){
-                console.log("User already subscribed to this game");
-                throw "User already subscribed";
-            } else {
+            let game  = _(state.games).filter({code:game}).first();
+
+            if (!game) {
                 state.games.push(GAMES[game]);
                 state.save();
+                return game;
+            }else {
+                return game;
             }
         })
 };
@@ -68,4 +76,3 @@ exports.addProgress = function (senderId, gameCode, progress = 1) {
         })
 };
 
-exports.games = _.keys(GAMES);
