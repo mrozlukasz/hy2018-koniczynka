@@ -6,6 +6,7 @@ var logger = require('morgan');
 var body_parser = require('body-parser');
 var request = require('request');
 var config = require('./config/config');
+var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
