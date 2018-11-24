@@ -33,6 +33,7 @@ router.post('/', (req, res) => {
             //     }
             // });
             if (entry.message) {
+                console.log(entry.message);
                 if (entry.message.text === 'test') {
                     bots.sendTextMessage(entry.recipient.id, "OK, to test.");
                 }
