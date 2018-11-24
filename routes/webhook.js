@@ -52,7 +52,7 @@ router.post('/', (req, res) => {
                     var messageData = {
                         messaging_type: "RESPONSE",
                         recipient: {
-                            id: "2495467783813050"
+                            id: webhook_event.sender.id
                         },
                         message: {
                             text: "HELLO WORLD"
