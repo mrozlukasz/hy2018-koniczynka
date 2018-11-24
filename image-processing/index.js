@@ -1,2 +1,2 @@
-exports.ocr = require("./service.js");
-exports.preprocessor = require("./image-adjuster.js");
+exports.ocr = require("./service");
+exports.preprocessor = require("./preprocessor");
