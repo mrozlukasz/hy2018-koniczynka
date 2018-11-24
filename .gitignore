@@ -126,3 +126,6 @@ fabric.properties
 
 
 .idea/
+
+!.tmp/README.MD
+.tmp/
