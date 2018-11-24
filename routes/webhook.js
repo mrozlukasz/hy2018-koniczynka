@@ -18,20 +18,20 @@ router.post('/', (req, res) => {
             var timeOfEvent = entry.time;
 
 
-            // Iterate over each messaging event
-            entry.messaging.forEach(function(messagingEvent) {
-                if (messagingEvent.optin) {
-                    bots.receivedAuthentication(messagingEvent);
-                } else if (messagingEvent.message) {
-                    bots.receivedMessage(messagingEvent);
-                } else if (messagingEvent.delivery) {
-                    bots.receivedDeliveryConfirmation(messagingEvent);
-                } else if (messagingEvent.postback) {
-                    bots.receivedPostback(messagingEvent);
-                } else {
-                    console.log("Webhook received unknown messagingEvent: ", messagingEvent);
-                }
-            });
+            // // Iterate over each messaging event
+            // entry.messaging.forEach(function(messagingEvent) {
+            //     if (messagingEvent.optin) {
+            //         bots.receivedAuthentication(messagingEvent);
+            //     } else if (messagingEvent.message) {
+            //         bots.receivedMessage(messagingEvent);
+            //     } else if (messagingEvent.delivery) {
+            //         bots.receivedDeliveryConfirmation(messagingEvent);
+            //     } else if (messagingEvent.postback) {
+            //         bots.receivedPostback(messagingEvent);
+            //     } else {
+            //         console.log("Webhook received unknown messagingEvent: ", messagingEvent);
+            //     }
+            // });
 
 
             // Get the webhook event. entry.messaging is an array, but
