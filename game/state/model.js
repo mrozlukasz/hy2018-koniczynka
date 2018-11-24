@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const _ = require('lodash');
 
 let GamesSchema = mongoose.Schema({
     code: String,
@@ -68,6 +68,19 @@ exports.incCoins = function (senderId, increment) {
         state.save();
         return state.coins;
     });
+};
+
+exports.registerCoupons = function (senderId, coupons) {
+    StateModel.update(
+        {_id: senderId},
+        {
+            $push: {
+                coupons: {
+                    $each: coupons
+                }
+            }
+        }
+    );
 };
 
 exports.getOrCreate = getOrCreate;

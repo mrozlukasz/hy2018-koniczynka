@@ -47,7 +47,7 @@ router.post('/', (req, res) => {
                 }
 
                 try {
-                    if (webhook_event.message.text === 'moje monety') {
+                    if (webhook_event.message.text === 'Moje monety') {
                         model.getCoins(webhook_event.sender.id).then( (state) => {
                             console.log("State for ", webhook_event.sender.id, " is ",  state);
                             if (!_.isEmpty(state.coins)) {
@@ -74,6 +74,7 @@ router.post('/', (req, res) => {
                         message += "\n Poinformuję Cię o wynikach.";
 
                         conversation.sendTextMessage(request, webhook_event.sender.id, message, PAGE_ACCESS_TOKEN);
+                        model.registerCoupons(webhook_event.sender.id, coupons);
                     }).catch(e => {
                         console.error("Error during processing image with coupon", e);
                         let message = "Przepraszam ale nie udało mi się odczytać twojego kuponu" +
