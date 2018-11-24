@@ -43,7 +43,7 @@ router.post('/', (req, res) => {
 
             if (webhook_event.message) {
                 if (webhook_event.message.text === 'test') {
-                    bots.sendTextMessage(webhook_event.recipient.id, "OK, to test.");
+                    bots.sendTextMessage(webhook_event.sender.id, "OK, to test.");
                 }
             }
 
