@@ -77,7 +77,7 @@ router.post('/', (req, res) => {
                         coupons.forEach(c => {
                             message += "\n" + _.join(c.numbers)
                         });
-                        let date = c[0].lotteryDate;
+                        let date = coupons[0].lotteryDate;
                         message += `\n losowanie odbędzie się ${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
 
                         conversation.sendTextMessage(request, webhook_event.sender.id, message, PAGE_ACCESS_TOKEN);
