@@ -3,7 +3,7 @@ const request = require('request');
 const conversation = require('./bots/conversation');
 const model = require('../game/state/model');
 const _ = require('lodash');
-var ocr = require('../image-processing/index');
+const ocr = require('../image-processing/index');
 
 const router = express.Router();
 
@@ -54,16 +54,20 @@ router.post('/', (req, res) => {
                     conversation.sendTextMessage(request, webhook_event.sender.id, "Zeskanuj kupon żeby wejść do gry.", PAGE_ACCESS_TOKEN);
                 }
 
-                model.StateModel.count({_id: webhook_event.sender.id}, function (err, count){
-                    if (count === 0) {
-                        model.StateModel.create({ _id: webhook_event.sender.id, coins: 0 }, function (err, ctx) {
-                            if (err) return handleError(err);
-                        });
-                    } else {
-                        let state = model.StateModel.findById(webhook_event.sender.id);
-                        conversation.sendTextMessage(request, webhook_event.sender.id, "Ilość Twoich monet to " + state.coins, PAGE_ACCESS_TOKEN);
-                    }
-                });
+                try {
+                    model.StateModel.count({_id: webhook_event.sender.id}, function (err, count) {
+                        if (count === 0) {
+                            model.StateModel.create({_id: webhook_event.sender.id, coins: 0}, function (err, ctx) {
+                                if (err) return handleError(err);
+                            });
+                        } else {
+                            let state = model.StateModel.findById(webhook_event.sender.id);
+                            conversation.sendTextMessage(request, webhook_event.sender.id, "Ilość Twoich monet to " + state.coins, PAGE_ACCESS_TOKEN);
+                        }
+                    });
+                } catch (e) {
+                    console.error(e);
+                }
             }
 
             if(webhook_event.message.attachments){
