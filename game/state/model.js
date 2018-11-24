@@ -15,7 +15,7 @@ var StateSchema = Schema({
         /**
          * id kuponu
          * data losowania
-         * array 6 cyfr
+         * array 6 liczb
          */
     ],
     coins: Number,

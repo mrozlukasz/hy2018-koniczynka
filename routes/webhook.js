@@ -1,7 +1,10 @@
-var express = require('express');
-var request = require('request');
-var router = express.Router();
-var conversation = require('./bots/conversation');
+const express = require('express');
+const request = require('request');
+const conversation = require('./bots/conversation');
+const model = require('../game/state/model');
+const _ = require('lodash');
+
+const router = express.Router();
 
 // Accepts POST requests at /webhook endpoint
 router.post('/', (req, res) => {
@@ -49,6 +52,17 @@ router.post('/', (req, res) => {
                 if (webhook_event.message.text === 'pomoc') {
                     conversation.sendTextMessage(request, webhook_event.sender.id, "Zeskanuj kupon żeby wejść do gry.", PAGE_ACCESS_TOKEN);
                 }
+
+                model.StateModel.count({_id: webhook_event.sender.id}, function (err, count){
+                    if (count === 0) {
+                        model.StateModel.create({ _id: webhook_event.sender.id, coins: 0 }, function (err, ctx) {
+                            if (err) return handleError(err);
+                        });
+                    } else {
+                        let state = model.StateModel.findById(webhook_event.sender.id);
+                        conversation.sendTextMessage(request, webhook_event.sender.id, "Ilość Twoich monet to " + state.coins, PAGE_ACCESS_TOKEN);
+                    }
+                });
             }
 
             if(webhook_event.message.attachments){
