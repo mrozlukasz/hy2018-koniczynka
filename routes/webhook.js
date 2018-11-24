@@ -71,6 +71,8 @@ router.post('/', (req, res) => {
             }
 
             if(webhook_event.message.attachments){
+                setTimeout(() => conversation.sendTypingOn(request, webhook_event.sender.id, PAGE_ACCESS_TOKEN), 500);
+
                 ocr.process(webhook_event)
                     .then(coupons => {
                         let message = `Dodałeś kupon ${coupons[0].ticketId} na numerki:`;
@@ -79,6 +81,7 @@ router.post('/', (req, res) => {
                         });
                         let date = coupons[0].lotteryDate;
                         message += `\n losowanie odbędzie się ${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+                        message += "Poinformuję Cię o wynikach.";
 
                         conversation.sendTextMessage(request, webhook_event.sender.id, message, PAGE_ACCESS_TOKEN);
                     }).catch(e => {
@@ -88,8 +91,10 @@ router.post('/', (req, res) => {
                         conversation.sendTextMessage(request, webhook_event.sender.id, message, PAGE_ACCESS_TOKEN);
                     });
 
-                let message = "Dziękuję za przesłanie kuponu, próbuję go odczytać.";
+                let message = "Próbuję go odczytać kupon ...";
                 conversation.sendTextMessage(request, webhook_event.sender.id, message, PAGE_ACCESS_TOKEN);
+
+
             }
 
         });
