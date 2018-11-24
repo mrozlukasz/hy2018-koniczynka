@@ -1,6 +1,7 @@
 const express = require('express');
 const request = require('request');
 const conversation = require('./bots/conversation');
+const postbacks = require('./bots/postbacks');
 const model = require('../game/state/model');
 const _ = require('lodash');
 const ocr = require('../image-processing/index');
@@ -20,27 +21,12 @@ router.post('/', (req, res) => {
     // Check the webhook event is from a Page subscription
     if (body.object === 'page') {
 
+        conversation.menuButtons(request, PAGE_ACCESS_TOKEN);
+
         // Iterate over each entry - there may be multiple if batched
         body.entry.forEach(function(entry) {
             var pageID = entry.id;
             var timeOfEvent = entry.time;
-
-
-            // // Iterate over each messaging event
-            // entry.messaging.forEach(function(messagingEvent) {
-            //     if (messagingEvent.optin) {
-            //         bots.receivedAuthentication(messagingEvent);
-            //     } else if (messagingEvent.message) {
-            //         bots.receivedMessage(messagingEvent);
-            //     } else if (messagingEvent.delivery) {
-            //         bots.receivedDeliveryConfirmation(messagingEvent);
-            //     } else if (messagingEvent.postback) {
-            //         bots.receivedPostback(messagingEvent);
-            //     } else {
-            //         console.log("Webhook received unknown messagingEvent: ", messagingEvent);
-            //     }
-            // });
-
 
             // Get the webhook event. entry.messaging is an array, but
             // will only ever contain one event, so we get index 0
@@ -48,6 +34,10 @@ router.post('/', (req, res) => {
             console.log(webhook_event);
             console.log(" ");
             console.log(entry);
+
+            if (webhook_event.postback) {
+                postbacks.handle(request, webhook_event, token)
+            }
 
             if (webhook_event.message) {
                 if (webhook_event.message.text === 'pomoc') {
