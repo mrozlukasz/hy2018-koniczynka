@@ -1,0 +1,822 @@
+[
+  {
+    "Words": [
+      {
+        "WordText": "LOtț0",
+        "Left": 350,
+        "Top": 371,
+        "Height": 42,
+        "Width": 84
+      }
+    ],
+    "MaxHeight": 42,
+    "MinTop": 371
+  },
+  {
+    "Words": [
+      {
+        "WordText": "CHYBIŁ",
+        "Left": 429,
+        "Top": 476,
+        "Height": 26,
+        "Width": 84
+      },
+      {
+        "WordText": "TRAFIŁ",
+        "Left": 530,
+        "Top": 473,
+        "Height": 26,
+        "Width": 84
+      }
+    ],
+    "MaxHeight": 26,
+    "MinTop": 473
+  },
+  {
+    "Words": [
+      {
+        "WordText": "15.11",
+        "Left": 141,
+        "Top": 483,
+        "Height": 25,
+        "Width": 60
+      },
+      {
+        "WordText": ".18",
+        "Left": 213,
+        "Top": 482,
+        "Height": 25,
+        "Width": 34
+      }
+    ],
+    "MaxHeight": 25,
+    "MinTop": 482
+  },
+  {
+    "Words": [
+      {
+        "WordText": "05",
+        "Left": 290,
+        "Top": 546,
+        "Height": 24,
+        "Width": 27
+      },
+      {
+        "WordText": "06",
+        "Left": 331,
+        "Top": 545,
+        "Height": 24,
+        "Width": 27
+      },
+      {
+        "WordText": "16",
+        "Left": 375,
+        "Top": 544,
+        "Height": 25,
+        "Width": 25
+      },
+      {
+        "WordText": "44",
+        "Left": 415,
+        "Top": 544,
+        "Height": 24,
+        "Width": 26
+      },
+      {
+        "WordText": "48",
+        "Left": 457,
+        "Top": 543,
+        "Height": 24,
+        "Width": 27
+      },
+      {
+        "WordText": "49",
+        "Left": 500,
+        "Top": 542,
+        "Height": 25,
+        "Width": 27
+      }
+    ],
+    "MaxHeight": 25,
+    "MinTop": 542
+  },
+  {
+    "Words": [
+      {
+        "WordText": "2:",
+        "Left": 236,
+        "Top": 579,
+        "Height": 24,
+        "Width": 22
+      },
+      {
+        "WordText": "03",
+        "Left": 290,
+        "Top": 578,
+        "Height": 24,
+        "Width": 27
+      },
+      {
+        "WordText": "20",
+        "Left": 331,
+        "Top": 578,
+        "Height": 24,
+        "Width": 27
+      },
+      {
+        "WordText": "21",
+        "Left": 373,
+        "Top": 577,
+        "Height": 24,
+        "Width": 23
+      },
+      {
+        "WordText": "22",
+        "Left": 414,
+        "Top": 576,
+        "Height": 25,
+        "Width": 28
+      },
+      {
+        "WordText": "45",
+        "Left": 457,
+        "Top": 576,
+        "Height": 24,
+        "Width": 27
+      },
+      {
+        "WordText": "48",
+        "Left": 499,
+        "Top": 575,
+        "Height": 24,
+        "Width": 28
+      }
+    ],
+    "MaxHeight": 25,
+    "MinTop": 575
+  },
+  {
+    "Words": [
+      {
+        "WordText": "0,00",
+        "Left": 513,
+        "Top": 639,
+        "Height": 27,
+        "Width": 55
+      },
+      {
+        "WordText": "zł",
+        "Left": 585,
+        "Top": 639,
+        "Height": 24,
+        "Width": 26
+      }
+    ],
+    "MaxHeight": 27,
+    "MinTop": 639
+  },
+  {
+    "Words": [
+      {
+        "WordText": "SUPER",
+        "Left": 141,
+        "Top": 643,
+        "Height": 24,
+        "Width": 66
+      },
+      {
+        "WordText": "SZANSA:",
+        "Left": 222,
+        "Top": 642,
+        "Height": 25,
+        "Width": 90
+      },
+      {
+        "WordText": "NIE",
+        "Left": 332,
+        "Top": 642,
+        "Height": 24,
+        "Width": 39
+      }
+    ],
+    "MaxHeight": 25,
+    "MinTop": 642
+  },
+  {
+    "Words": [
+      {
+        "WordText": "4017433",
+        "Left": 290,
+        "Top": 673,
+        "Height": 26,
+        "Width": 180
+      }
+    ],
+    "MaxHeight": 26,
+    "MinTop": 673
+  },
+  {
+    "Words": [
+      {
+        "WordText": "Sprawdziłeś,",
+        "Left": 126,
+        "Top": 739,
+        "Height": 25,
+        "Width": 160
+      },
+      {
+        "WordText": "co",
+        "Left": 304,
+        "Top": 745,
+        "Height": 17,
+        "Width": 26
+      },
+      {
+        "WordText": "nowego",
+        "Left": 345,
+        "Top": 744,
+        "Height": 20,
+        "Width": 81
+      },
+      {
+        "WordText": "1,11",
+        "Left": 442,
+        "Top": 744,
+        "Height": 18,
+        "Width": 11
+      },
+      {
+        "WordText": "Multi",
+        "Left": 470,
+        "Top": 738,
+        "Height": 24,
+        "Width": 65
+      },
+      {
+        "WordText": "Multi?",
+        "Left": 555,
+        "Top": 737,
+        "Height": 25,
+        "Width": 86
+      }
+    ],
+    "MaxHeight": 25,
+    "MinTop": 737
+  },
+  {
+    "Words": [
+      {
+        "WordText": "Okres",
+        "Left": 140,
+        "Top": 770,
+        "Height": 24,
+        "Width": 66
+      },
+      {
+        "WordText": "promocyjnych",
+        "Left": 222,
+        "Top": 770,
+        "Height": 26,
+        "Width": 163
+      },
+      {
+        "WordText": "wygranych",
+        "Left": 400,
+        "Top": 770,
+        "Height": 26,
+        "Width": 125
+      },
+      {
+        "WordText": "trwa!",
+        "Left": 541,
+        "Top": 770,
+        "Height": 25,
+        "Width": 67
+      }
+    ],
+    "MaxHeight": 26,
+    "MinTop": 770
+  },
+  {
+    "Words": [
+      {
+        "WordText": "wytypuj",
+        "Left": 113,
+        "Top": 802,
+        "Height": 25,
+        "Width": 92
+      },
+      {
+        "WordText": "8",
+        "Left": 223,
+        "Top": 802,
+        "Height": 23,
+        "Width": 11
+      },
+      {
+        "WordText": "liczb",
+        "Left": 254,
+        "Top": 802,
+        "Height": 24,
+        "Width": 62
+      },
+      {
+        "WordText": "i",
+        "Left": 334,
+        "Top": 804,
+        "Height": 22,
+        "Width": 5
+      },
+      {
+        "WordText": "wygraj",
+        "Left": 359,
+        "Top": 804,
+        "Height": 24,
+        "Width": 79
+      },
+      {
+        "WordText": "2",
+        "Left": 456,
+        "Top": 802,
+        "Height": 24,
+        "Width": 12
+      },
+      {
+        "WordText": "razy",
+        "Left": 485,
+        "Top": 809,
+        "Height": 19,
+        "Width": 54
+      },
+      {
+        "WordText": "wjecej!",
+        "Left": 555,
+        "Top": 802,
+        "Height": 26,
+        "Width": 98
+      }
+    ],
+    "MaxHeight": 26,
+    "MinTop": 802
+  },
+  {
+    "Words": [
+      {
+        "WordText": "Promocyjne",
+        "Left": 85,
+        "Top": 834,
+        "Height": 25,
+        "Width": 135
+      },
+      {
+        "WordText": "wygrane",
+        "Left": 236,
+        "Top": 840,
+        "Height": 19,
+        "Width": 94
+      },
+      {
+        "WordText": "tylko",
+        "Left": 345,
+        "Top": 834,
+        "Height": 25,
+        "Width": 67
+      },
+      {
+        "WordText": "do",
+        "Left": 428,
+        "Top": 834,
+        "Height": 24,
+        "Width": 26
+      },
+      {
+        "WordText": "21",
+        "Left": 470,
+        "Top": 834,
+        "Height": 24,
+        "Width": 22
+      },
+      {
+        "WordText": "listopada",
+        "Left": 517,
+        "Top": 834,
+        "Height": 28,
+        "Width": 124
+      },
+      {
+        "WordText": "!",
+        "Left": 663,
+        "Top": 835,
+        "Height": 26,
+        "Width": 5
+      }
+    ],
+    "MaxHeight": 28,
+    "MinTop": 834
+  },
+  {
+    "Words": [
+      {
+        "WordText": "6,00",
+        "Left": 358,
+        "Top": 898,
+        "Height": 27,
+        "Width": 55
+      },
+      {
+        "WordText": "a",
+        "Left": 427,
+        "Top": 899,
+        "Height": 25,
+        "Width": 27
+      }
+    ],
+    "MaxHeight": 27,
+    "MinTop": 898
+  },
+  {
+    "Words": [
+      {
+        "WordText": "DATA",
+        "Left": 137,
+        "Top": 929,
+        "Height": 24,
+        "Width": 52
+      },
+      {
+        "WordText": "LOSOWANIA:",
+        "Left": 205,
+        "Top": 930,
+        "Height": 25,
+        "Width": 133
+      }
+    ],
+    "MaxHeight": 25,
+    "MinTop": 929
+  },
+  {
+    "Words": [
+      {
+        "WordText": "15.11.18",
+        "Left": 415,
+        "Top": 932,
+        "Height": 27,
+        "Width": 110
+      },
+      {
+        "WordText": "21",
+        "Left": 542,
+        "Top": 934,
+        "Height": 26,
+        "Width": 22
+      },
+      {
+        "WordText": "•.40",
+        "Left": 576,
+        "Top": 935,
+        "Height": 25,
+        "Width": 37
+      }
+    ],
+    "MaxHeight": 27,
+    "MinTop": 932
+  },
+  {
+    "Words": [
+      {
+        "WordText": "KOL.",
+        "Left": 133,
+        "Top": 994,
+        "Height": 25,
+        "Width": 50
+      },
+      {
+        "WordText": "01252100",
+        "Left": 202,
+        "Top": 995,
+        "Height": 27,
+        "Width": 109
+      }
+    ],
+    "MaxHeight": 27,
+    "MinTop": 994
+  },
+  {
+    "Words": [
+      {
+        "WordText": "TERM.",
+        "Left": 414,
+        "Top": 999,
+        "Height": 27,
+        "Width": 65
+      },
+      {
+        "WordText": "20013119",
+        "Left": 499,
+        "Top": 1001,
+        "Height": 28,
+        "Width": 115
+      }
+    ],
+    "MaxHeight": 28,
+    "MinTop": 999
+  },
+  {
+    "Words": [
+      {
+        "WordText": "018966",
+        "Left": 131,
+        "Top": 1027,
+        "Height": 26,
+        "Width": 82
+      }
+    ],
+    "MaxHeight": 26,
+    "MinTop": 1027
+  },
+  {
+    "Words": [
+      {
+        "WordText": "0061-043494730-086724",
+        "Left": 312,
+        "Top": 1031,
+        "Height": 33,
+        "Width": 302
+      }
+    ],
+    "MaxHeight": 33,
+    "MinTop": 1031
+  },
+  {
+    "Words": [
+      {
+        "WordText": "lilii",
+        "Left": 55,
+        "Top": 1161,
+        "Height": 71,
+        "Width": 51
+      },
+      {
+        "WordText": "I",
+        "Left": 110,
+        "Top": 1163,
+        "Height": 70,
+        "Width": 14
+      },
+      {
+        "WordText": "II",
+        "Left": 128,
+        "Top": 1163,
+        "Height": 71,
+        "Width": 18
+      },
+      {
+        "WordText": "II",
+        "Left": 151,
+        "Top": 1164,
+        "Height": 70,
+        "Width": 26
+      },
+      {
+        "WordText": "I",
+        "Left": 178,
+        "Top": 1165,
+        "Height": 70,
+        "Width": 8
+      },
+      {
+        "WordText": "I",
+        "Left": 187,
+        "Top": 1165,
+        "Height": 70,
+        "Width": 8
+      },
+      {
+        "WordText": "I",
+        "Left": 200,
+        "Top": 1166,
+        "Height": 69,
+        "Width": 8
+      },
+      {
+        "WordText": "I",
+        "Left": 209,
+        "Top": 1166,
+        "Height": 70,
+        "Width": 8
+      },
+      {
+        "WordText": "I",
+        "Left": 218,
+        "Top": 1166,
+        "Height": 70,
+        "Width": 12
+      },
+      {
+        "WordText": "I",
+        "Left": 236,
+        "Top": 1167,
+        "Height": 70,
+        "Width": 12
+      },
+      {
+        "WordText": "I",
+        "Left": 249,
+        "Top": 1167,
+        "Height": 70,
+        "Width": 8
+      },
+      {
+        "WordText": "I",
+        "Left": 263,
+        "Top": 1167,
+        "Height": 71,
+        "Width": 12
+      },
+      {
+        "WordText": "I",
+        "Left": 276,
+        "Top": 1168,
+        "Height": 70,
+        "Width": 12
+      },
+      {
+        "WordText": "I",
+        "Left": 290,
+        "Top": 1168,
+        "Height": 70,
+        "Width": 7
+      },
+      {
+        "WordText": "I",
+        "Left": 303,
+        "Top": 1169,
+        "Height": 69,
+        "Width": 7
+      },
+      {
+        "WordText": "I",
+        "Left": 312,
+        "Top": 1169,
+        "Height": 70,
+        "Width": 7
+      },
+      {
+        "WordText": "I",
+        "Left": 326,
+        "Top": 1169,
+        "Height": 70,
+        "Width": 6
+      },
+      {
+        "WordText": "I",
+        "Left": 348,
+        "Top": 1171,
+        "Height": 69,
+        "Width": 6
+      },
+      {
+        "WordText": "I",
+        "Left": 375,
+        "Top": 1171,
+        "Height": 70,
+        "Width": 6
+      },
+      {
+        "WordText": "I",
+        "Left": 389,
+        "Top": 1172,
+        "Height": 70,
+        "Width": 5
+      },
+      {
+        "WordText": "I",
+        "Left": 402,
+        "Top": 1172,
+        "Height": 70,
+        "Width": 6
+      },
+      {
+        "WordText": "I",
+        "Left": 416,
+        "Top": 1173,
+        "Height": 69,
+        "Width": 5
+      },
+      {
+        "WordText": "I",
+        "Left": 452,
+        "Top": 1174,
+        "Height": 70,
+        "Width": 5
+      },
+      {
+        "WordText": "I",
+        "Left": 461,
+        "Top": 1174,
+        "Height": 71,
+        "Width": 5
+      },
+      {
+        "WordText": "I",
+        "Left": 488,
+        "Top": 1175,
+        "Height": 71,
+        "Width": 10
+      },
+      {
+        "WordText": "I",
+        "Left": 507,
+        "Top": 1176,
+        "Height": 70,
+        "Width": 5
+      },
+      {
+        "WordText": "I",
+        "Left": 530,
+        "Top": 1177,
+        "Height": 70,
+        "Width": 5
+      },
+      {
+        "WordText": "I",
+        "Left": 543,
+        "Top": 1177,
+        "Height": 71,
+        "Width": 5
+      },
+      {
+        "WordText": "I",
+        "Left": 571,
+        "Top": 1178,
+        "Height": 71,
+        "Width": 5
+      },
+      {
+        "WordText": "I",
+        "Left": 580,
+        "Top": 1179,
+        "Height": 71,
+        "Width": 5
+      },
+      {
+        "WordText": "I",
+        "Left": 590,
+        "Top": 1179,
+        "Height": 71,
+        "Width": 4
+      },
+      {
+        "WordText": "I",
+        "Left": 604,
+        "Top": 1179,
+        "Height": 71,
+        "Width": 4
+      },
+      {
+        "WordText": "I",
+        "Left": 627,
+        "Top": 1180,
+        "Height": 71,
+        "Width": 9
+      },
+      {
+        "WordText": "I",
+        "Left": 646,
+        "Top": 1180,
+        "Height": 72,
+        "Width": 4
+      },
+      {
+        "WordText": "I",
+        "Left": 655,
+        "Top": 1181,
+        "Height": 71,
+        "Width": 5
+      },
+      {
+        "WordText": "I",
+        "Left": 683,
+        "Top": 1181,
+        "Height": 72,
+        "Width": 5
+      },
+      {
+        "WordText": "I",
+        "Left": 697,
+        "Top": 1182,
+        "Height": 72,
+        "Width": 10
+      },
+      {
+        "WordText": "I",
+        "Left": 725,
+        "Top": 1182,
+        "Height": 72,
+        "Width": 5
+      }
+    ],
+    "MaxHeight": 72,
+    "MinTop": 1161
+  }
+]
