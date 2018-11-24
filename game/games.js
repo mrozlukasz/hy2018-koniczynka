@@ -37,6 +37,20 @@ exports.subscribe = function (senderId, game) {
         })
 };
 
+exports.gamesProgress = function(senderId){
+    return model.getOrCreate(senderId)
+        .then(state => {
+            _(state.games)
+                .map(g => {
+                    return {
+                        code: g.code,
+                        progress: `${g.progress}/${g.max}`,
+                        state: g.state
+                    }
+                })
+        })
+};
+
 
 exports.addProgress = function (senderId, gameCode, progress = 1) {
     return model.getOrCreate(senderId)
