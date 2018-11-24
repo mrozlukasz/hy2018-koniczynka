@@ -55,7 +55,7 @@ router.post('/', (req, res) => {
                 }
 
                 try {
-                    model.StateModel.count({_id: webhook_event.sender.id}, function (err, count) {
+                    model.StateModel.countDocuments({_id: webhook_event.sender.id}, function (err, count) {
                         if (count === 0) {
                             model.StateModel.create({_id: webhook_event.sender.id, coins: 0}, function (err, ctx) {
                                 if (err) return handleError(err);

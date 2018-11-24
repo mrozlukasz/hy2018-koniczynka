@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+
 // Defining schema for our State API
-var StateSchema = Schema({
+var StateSchema = new mongoose.Schema({
     _id: String, // sender Id
     conversation: {
         id: String,
