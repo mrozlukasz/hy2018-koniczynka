@@ -75,12 +75,21 @@ router.post('/', (req, res) => {
                     .then(coupons => {
                         let message = `Dodałeś kupon ${coupons[0].ticketId} na numerki:`;
                         coupons.forEach(c => {
-                            message +="\n" + _.join(c.numbers)
+                            message += "\n" + _.join(c.numbers)
                         });
+                        let date = c[0].lotteryDate;
                         message += `\n losowanie odbędzie się ${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
 
                         conversation.sendTextMessage(request, webhook_event.sender.id, message, PAGE_ACCESS_TOKEN);
-                    })
+                    }).catch(e => {
+                        console.error("Error during processing image with coupon", e);
+                        let message = "Przepraszam ale nie udało mi się odczytać twojego kuponu" +
+                            "\n Spróbuj jeszcze raz.";
+                        conversation.sendTextMessage(request, webhook_event.sender.id, message, PAGE_ACCESS_TOKEN);
+                    });
+
+                let message = "Dziękuję za przesłanie kuponu, próbuję go odczytać.";
+                conversation.sendTextMessage(request, webhook_event.sender.id, message, PAGE_ACCESS_TOKEN);
             }
 
         });
