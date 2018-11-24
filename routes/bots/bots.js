@@ -40,7 +40,8 @@ exports.sendTextMessage = function(recipientId, messageText) {
             text: messageText
         }
     };
-
+    console.log("Sending to FB ");
+    console.log(messageData);
     callSendAPI(messageData);
 };
 
