@@ -28,3 +28,36 @@ var StateSchema = mongoose.Schema({
 var StateModel = mongoose.model('State', StateSchema);
 
 exports.StateModel = StateModel;
+
+function getOrCreate(senderId) {
+    return new Promise((resolve, reject) => {
+        StateModel.findById(senderId).exec((err, state) => {
+            if (err) {
+                StateModel.create({_id: senderId, coins: 0}, function (err, ctx) {
+                    if (err) {
+                        reject(err);
+                    }
+                    console.log("created new state for sender id ", senderId);
+                    resolve(ctx);
+                });
+            }
+            console.log("found state for sender id ", senderId);
+            resolve(state);
+        });
+    });
+}
+
+exports.getCoins = function (senderId) {
+    return getOrCreate(senderId).then((state) => {
+        return state.coins;
+    });
+};
+
+exports.incCoins = function (senderId, increment) {
+    return getOrCreate(senderId).then((state) => {
+        console.log("state -> ", state);
+        state.coins = state.coins + increment;
+        state.save();
+        return state.coins;
+    });
+};

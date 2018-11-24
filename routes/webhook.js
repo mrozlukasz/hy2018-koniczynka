@@ -55,28 +55,22 @@ router.post('/', (req, res) => {
                 }
 
                 try {
-                    model.StateModel.countDocuments({_id: webhook_event.sender.id}, function (err, count) {
-                        console.log("Count for ", webhook_event.sender.id, " is ", count);
-                        if (count === 0) {
-                            model.StateModel.create({_id: webhook_event.sender.id, coins: 0}, function (err, ctx) {
-                                if (err) return handleError(err);
-                            });
-                        } else {
-                            model.StateModel.findById(webhook_event.sender.id).exec((err, state) => {
-                                console.log("State for ", webhook_event.sender.id, " is ",  state);
+                    if (webhook_event.message.text === 'moje monety') {
+                        model.getCoins(webhook_event.sender.id).then( (state) => {
+                            console.log("State for ", webhook_event.sender.id, " is ",  state);
+                            if (!_.isEmpty(state.coins)) {
                                 conversation.sendTextMessage(request, webhook_event.sender.id, "Ilość Twoich monet to " + state.coins, PAGE_ACCESS_TOKEN);
-                            });
-
-                        }
-                    });
+                            } else {
+                                conversation.sendTextMessage(request, webhook_event.sender.id, "Czy my się znamy? :)", PAGE_ACCESS_TOKEN);
+                            }
+                        });
+                    }
                 } catch (e) {
                     console.error(e);
                 }
             }
 
             if(webhook_event.message.attachments){
-
-
                 ocr.process(webhook_event)
                     .then(coupons => {
                         let message = `Dodałeś kupon ${coupons[0].ticketId} na numerki:`;
@@ -98,10 +92,7 @@ router.post('/', (req, res) => {
                 let message = "Próbuję odczytać kupon ...";
                 conversation.sendTextMessage(request, webhook_event.sender.id, message, PAGE_ACCESS_TOKEN);
                 setTimeout(() => conversation.sendTypingOn(request, webhook_event.sender.id, PAGE_ACCESS_TOKEN), 250);
-
-
             }
-
         });
 
         // Return a '200 OK' response to all events
