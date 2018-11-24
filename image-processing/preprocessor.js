@@ -40,9 +40,7 @@ exports.adjust = (imageUrl) => {
             return jimpObject.writeAsync(processedImageName)
         }).then(() => {
             return processedImageName
-        }).catch((err) => {
-            console.log(err)
-        });
+        })
     });
 
 };
