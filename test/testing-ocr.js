@@ -1,5 +1,5 @@
 const assert = require("assert");
-const ocr = require("../image-processing/service")
+const ocr = require("../image-processing/service");
 
 describe("ocr - interface testing", function() {
     it("sending color file", function() {

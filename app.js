@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var body_parser = require('body-parser');
 var request = require('request');
+var config = require('config');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -24,6 +25,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(body_parser.json());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+//Connecting MongoDB using mongoose to our application
+mongoose.connect(config.db);
+
+//This callback will be triggered once the connection is successfully established to MongoDB
+mongoose.connection.on('connected', function () {
+    console.log('Mongoose default connection open to ' + config.db);
+});
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
