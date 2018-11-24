@@ -69,3 +69,5 @@ exports.incCoins = function (senderId, increment) {
         return state.coins;
     });
 };
+
+exports.getOrCreate = getOrCreate;
