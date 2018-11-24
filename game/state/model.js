@@ -1,5 +1,13 @@
 const mongoose = require('mongoose');
 
+
+let GamesSchema = mongoose.Schema({
+    code: String,
+    progress: Number,
+    max: Number,
+    state: String
+});
+
 // Defining schema for our State API
 var StateSchema = mongoose.Schema({
     _id: String, // sender Id
@@ -7,7 +15,7 @@ var StateSchema = mongoose.Schema({
         id: String,
         name: String
     },
-    games: [], //  3 gry
+    games: [GamesSchema], //  3 gry
     /**
      *
      */

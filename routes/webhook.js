@@ -63,7 +63,7 @@ router.post('/', (req, res) => {
                             });
                         } else {
                             model.StateModel.findById(webhook_event.sender.id).exec((err, state) => {
-                                console.log("State for ", webhook_event.sender.id, " is ",  state);
+                                console.log("State for ", webhook_event.sender.id, " is ",  JSON.stringify(state));
                                 conversation.sendTextMessage(request, webhook_event.sender.id, "Ilość Twoich monet to " + state.coins, PAGE_ACCESS_TOKEN);
                             });
 
