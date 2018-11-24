@@ -1,7 +1,7 @@
 var express = require('express');
 var request = require('request');
 var router = express.Router();
-var bots = require('./bots/bots');
+var conversation = require('./bots/conversation');
 
 // Accepts POST requests at /webhook endpoint
 router.post('/', (req, res) => {
@@ -46,34 +46,8 @@ router.post('/', (req, res) => {
             console.log(entry);
 
             if (webhook_event.message) {
-                if (webhook_event.message.text === 'test') {
-                    console.log("PAGE_ACCESS_TOKEN");
-                    console.log(PAGE_ACCESS_TOKEN);
-                    var messageData = {
-                        messaging_type: "RESPONSE",
-                        recipient: {
-                            id: webhook_event.sender.id
-                        },
-                        message: {
-                            text: "HELLO WORLD"
-                        }
-                    };
-                    console.log("Sending to FB ");
-                    console.log(messageData);
-                    request({
-                        url: 'https://graph.facebook.com/v2.6/me/messages?access_token=' + PAGE_ACCESS_TOKEN,
-                        method: 'POST',
-                        json: messageData
-
-                    }, function (error, response, body) {
-                        if (!error && response.statusCode == 200) {
-                            console.log("Successfully sent generic message with response %s ", response);
-                        } else {
-                            console.error("Unable to send message.");
-                            console.error(response);
-                            console.error(error);
-                        }
-                    });
+                if (webhook_event.message.text === 'pomoc') {
+                    conversation.sendTextMessage(request, webhook_event.sender.id, "Zeskanuj kupon żeby wejść do gry.", PAGE_ACCESS_TOKEN);
                 }
             }
 
