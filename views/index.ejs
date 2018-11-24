@@ -1,29 +1,88 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Koniczynka</title>
+	<link rel='stylesheet' href='../public/stylesheets/style.css'/>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-    <!-- Load Facebook SDK for JavaScript -->
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
+</head>
 
-    <!-- Your customer chat code -->
-    <div class="fb-customerchat"
-         attribution=setup_tool
-         page_id="2014802288613549">
-    </div>
+<body>
 
-  <div>TEST</div>
-  </body>
+	<header>
+		<div class="logo">
+			<a href="#"><img src="../public/images/logo.svg" alt="koniczynka"></a>
+		</div>
+		<!-- <nav>
+			<li><a href="#features">Sprawdź co potrafię</a></li>
+		</nav> -->
+	</header>
+
+
+	<section class="hero">
+		<div class="background-image" style="background-image: url(../public/images/bg.png);"></div>
+		<div class="intro">
+			<h1>Twój asystent Lotto</h1>
+			<h3>Skanuj kupony i wygrywaj nagrody.</h3>
+			<a href="#" class="btn">Rozpocznij</a>
+		</div>
+
+		<div class="hero_illustration">
+			<ul>
+				<!-- <li class="item i1"><img src="assets/img/asset_1.svg" alt=""></li> -->
+				<li class="item i2"><img src="../public/images/ball-1.svg" alt=""></li>
+				<li class="item i3"><img src="../public/images/ball-2.svg" alt=""></li>
+				<li class="item i4"><img src="../public/images/ball-3.svg" alt=""></li>
+			</ul>
+
+		</div>
+
+	</section>
+
+
+	<section class="features" id="features">
+		<h3 class="title">Co potrafię?</h3>
+		<p>Sprawdzę Twoje wyniki, mam dla Ciebie gry z nagrodami. Pomogę znaleźć najbliższą kolekturę.</p>
+		<hr>
+
+		<ul class="grid">
+			<li>
+				<i class="fas fa-bell"></i>
+				<h4>Powiadomię Cię o wygranej</h4>
+				<p>
+					Zrób zdjęcie kuponu, a ja powiadomię Cię o wygranej.
+					Nie musisz już więcej sprawdzać wyników.
+				</p>
+			</li>
+			<li>
+				<i class="fas fa-gift"></i>
+				<h4>Wygraj dodatkowe nagrody</h4>
+				<p>
+					Nie udało się wygrać? Nic nie szkodzi!
+					Koniczynka daje Ci szansę wygrania dodatkowych nagród.
+				</p>
+			</li>
+			<li>
+				<i class="fas fa-map-marker-alt"></i>
+				<h4>Znajdź najbliższą kolekturę</h4>
+				<p>
+					Nie wiesz gdzie jest najbliższy punkt Lotto?
+					Pokażę Ci kolektury w pobliżu Twojej lokalizacji.
+				</p>
+			</li>
+		</div>
+	</section>
+
+
+	<footer>
+		<p>Made by <a href="#" target="_blank">XDXDXD</a></p>
+	</footer>
+
+</body>
+
 </html>
