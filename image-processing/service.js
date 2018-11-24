@@ -1,15 +1,13 @@
-/** UPDATE YOUR VERIFY TOKEN **/
-const OCR_TOKEN = process.env.OCR_TOKEN;
+const ocrSpaceApi = require("ocr-space-api");
 
-
-var options =  {
-    apikey: OCR_TOKEN,
-    language: 'pol', // Português
-    imageFormat: 'image/jpeg',
-    isOverlayRequired: true
-};
-
-exports.parseImage = function(imageFilePath) {
+exports.parseImageFromFile = function(imageFilePath) {
+    let OCR_TOKEN = process.env.OCR_TOKEN;
+    let options =  {
+        apikey: OCR_TOKEN,
+        language: 'pol', // Polish
+        imageFormat: 'image/jpeg',
+        isOverlayRequired: true
+    };
     // Run and wait the result
     ocrSpaceApi.parseImageFromLocalFile(imageFilePath, options)
         .then(function (parsedResult) {
@@ -18,4 +16,4 @@ exports.parseImage = function(imageFilePath) {
         }).catch(function (err) {
         console.log('ERROR:', err);
     });
-}
+};
