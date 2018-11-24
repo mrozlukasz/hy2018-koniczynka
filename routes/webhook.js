@@ -73,11 +73,11 @@ router.post('/', (req, res) => {
             if(webhook_event.message.attachments){
                 ocr.process(webhook_event)
                     .then(coupons => {
-                        let message = "Dodałeś kupon ${coupons[0].ticketId} na numerki:";
+                        let message = `Dodałeś kupon ${coupons[0].ticketId} na numerki:`;
                         coupons.forEach(c => {
                             message +="\n" + _.join(c.numbers)
                         });
-                        message += "\n losowanie odbędzie się " + coupons[0].lotteryDate;
+                        message += `\n losowanie odbędzie się ${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
 
                         conversation.sendTextMessage(request, webhook_event.sender.id, message, PAGE_ACCESS_TOKEN);
                     })
