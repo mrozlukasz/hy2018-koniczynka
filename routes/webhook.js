@@ -19,10 +19,10 @@ router.post('/', (req, res) => {
             console.log(webhook_event);
 
             if(webhook_event.message.attachments){
-                let att = webhook_event.message.attachment;
+                let att = webhook_event.message.attachments;
                 console.log("Found attachment!!");
-                console.log(att.type);
-                console.log(att.payload);
+                console.log("Type=",att.type);
+                console.log("Payload", att.payload);
             }
 
         });
