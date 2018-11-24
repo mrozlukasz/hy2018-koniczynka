@@ -1,4 +1,4 @@
-var conversations = require('conversation');
+var conversations = require('./conversation');
 
 exports.handle = function (request, event, token) {
     var sender = event.sender.id;
