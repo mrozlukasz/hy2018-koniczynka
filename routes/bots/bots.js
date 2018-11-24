@@ -8,7 +8,7 @@ if (typeof String.prototype.contains === 'undefined') {
     };
 }
 
-exports.receivedAuthentication = function receivedAuthentication(event) {
+exports.receivedAuthentication = function(event) {
     var senderID = event.sender.id;
     var recipientID = event.recipient.id;
     var timeOfAuth = event.timestamp;
@@ -30,7 +30,7 @@ exports.receivedAuthentication = function receivedAuthentication(event) {
 };
 
 
-exports.sendTextMessage = function sendTextMessage(recipientId, messageText) {
+exports.sendTextMessage = function(recipientId, messageText) {
     var messageData = {
         recipient: {
             id: recipientId
@@ -43,7 +43,7 @@ exports.sendTextMessage = function sendTextMessage(recipientId, messageText) {
     callSendAPI(messageData);
 };
 
-exports.sendButtonMessage = function sendButtonMessage(recipientId, text) {
+exports.sendButtonMessage = function(recipientId, text) {
     var messageData = {
         recipient: {
             id: recipientId
@@ -71,7 +71,7 @@ exports.sendButtonMessage = function sendButtonMessage(recipientId, text) {
     callSendAPI(messageData);
 };
 
-exports.sendMedicine = function sendMedicine(recipientId) {
+exports.sendMedicine = function(recipientId) {
     var messageData = {
         recipient: {
             id: recipientId
@@ -123,7 +123,7 @@ exports.sendMedicine = function sendMedicine(recipientId) {
     callSendAPI(messageData);
 };
 
-exports.sendPharmacies = function sendPharmacies(recipientId) {
+exports.sendPharmacies = function(recipientId) {
     var messageData = {
         recipient: {
             id: recipientId
@@ -175,7 +175,7 @@ exports.sendPharmacies = function sendPharmacies(recipientId) {
     callSendAPI(messageData);
 };
 
-exports.sendGenericMessage = function sendGenericMessage(recipientId) {
+exports.sendGenericMessage = function(recipientId) {
     var messageData = {
         recipient: {
             id: recipientId
@@ -222,7 +222,7 @@ exports.sendGenericMessage = function sendGenericMessage(recipientId) {
     callSendAPI(messageData);
 };
 
-exports.callSendAPI = function callSendAPI(messageData) {
+exports.callSendAPI = function(messageData) {
     request({
         uri: 'https://graph.facebook.com/v2.6/me/messages',
         qs: {access_token: PAGE_ACCESS_TOKEN},
@@ -244,7 +244,7 @@ exports.callSendAPI = function callSendAPI(messageData) {
     });
 };
 
-exports.receivedDeliveryConfirmation = function receivedDeliveryConfirmation(event) {
+exports.receivedDeliveryConfirmation = function(event) {
     var senderID = event.sender.id;
     var recipientID = event.recipient.id;
     var delivery = event.delivery;
@@ -262,7 +262,7 @@ exports.receivedDeliveryConfirmation = function receivedDeliveryConfirmation(eve
     console.log("All message before %d were delivered.", watermark);
 };
 
-exports.receivedMessage = function receivedMessage(event) {
+exports.receivedMessage = function(event) {
     var senderID = event.sender.id;
     var recipientID = event.recipient.id;
     var timeOfMessage = event.timestamp;
@@ -332,7 +332,7 @@ exports.receivedMessage = function receivedMessage(event) {
     }
 };
 
-exports.receivedPostback = function receivedPostback(event) {
+exports.receivedPostback = function(event) {
     var senderID = event.sender.id;
     var recipientID = event.recipient.id;
     var timeOfPostback = event.timestamp;
