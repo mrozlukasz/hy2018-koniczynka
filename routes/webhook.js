@@ -3,6 +3,7 @@ const request = require('request');
 const conversation = require('./bots/conversation');
 const model = require('../game/state/model');
 const _ = require('lodash');
+var ocr = require('../image-processing/index');
 
 const router = express.Router();
 
@@ -66,14 +67,16 @@ router.post('/', (req, res) => {
             }
 
             if(webhook_event.message.attachments){
-                let atts = webhook_event.message.attachments;
+                ocr.process(webhook_event)
+                    .then(coupons => {
+                        let message = "Dodałeś kupon ${coupons[0].ticketId} na numerki:";
+                        coupons.forEach(c => {
+                            message +="\n" + _.join(c.numbers)
+                        });
+                        message += "\n losowanie odbędzie się " + coupons[0].lotteryDate;
 
-                console.log("Found attachments!!", atts.length);
-                atts.forEach(att => {
-                    console.log("Type = ",att.type);
-                    console.log("Payload = ", att.payload);
-                });
-
+                        conversation.sendTextMessage(request, webhook_event.sender.id, message, PAGE_ACCESS_TOKEN);
+                    })
             }
 
         });
