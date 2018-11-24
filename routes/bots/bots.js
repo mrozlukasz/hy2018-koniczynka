@@ -32,6 +32,7 @@ exports.receivedAuthentication = function(event) {
 
 exports.sendTextMessage = function(recipientId, messageText) {
     var messageData = {
+        messaging_type: "RESPONSE",
         recipient: {
             id: recipientId
         },
