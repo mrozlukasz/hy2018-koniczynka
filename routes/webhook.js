@@ -56,14 +56,14 @@ router.post('/', (req, res) => {
 
                 try {
                     model.StateModel.countDocuments({_id: webhook_event.sender.id}, function (err, count) {
-                        console.info("count");
-                        console.info(count);
                         if (count === 0) {
                             model.StateModel.create({_id: webhook_event.sender.id, coins: 0}, function (err, ctx) {
                                 if (err) return handleError(err);
                             });
                         } else {
                             let state = model.StateModel.findById(webhook_event.sender.id);
+                            console.info("state");
+                            console.info(state);
                             conversation.sendTextMessage(request, webhook_event.sender.id, "Ilość Twoich monet to " + state.coins, PAGE_ACCESS_TOKEN);
                         }
                     });
