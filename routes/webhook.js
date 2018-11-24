@@ -1,5 +1,7 @@
 var express = require('express');
+var request = require('request');
 var router = express.Router();
+var bots = require('./bots/bots');
 
 // Accepts POST requests at /webhook endpoint
 router.post('/', (req, res) => {
@@ -12,6 +14,25 @@ router.post('/', (req, res) => {
 
         // Iterate over each entry - there may be multiple if batched
         body.entry.forEach(function(entry) {
+            var pageID = entry.id;
+            var timeOfEvent = entry.time;
+
+
+            // Iterate over each messaging event
+            entry.messaging.forEach(function(messagingEvent) {
+                if (messagingEvent.optin) {
+                    bots.receivedAuthentication(messagingEvent);
+                } else if (messagingEvent.message) {
+                    bots.receivedMessage(messagingEvent);
+                } else if (messagingEvent.delivery) {
+                    bots.receivedDeliveryConfirmation(messagingEvent);
+                } else if (messagingEvent.postback) {
+                    bots.receivedPostback(messagingEvent);
+                } else {
+                    console.log("Webhook received unknown messagingEvent: ", messagingEvent);
+                }
+            });
+
 
             // Get the webhook event. entry.messaging is an array, but
             // will only ever contain one event, so we get index 0
