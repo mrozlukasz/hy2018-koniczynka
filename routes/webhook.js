@@ -43,6 +43,8 @@ router.post('/', (req, res) => {
             // will only ever contain one event, so we get index 0
             let webhook_event = entry.messaging[0];
             console.log(webhook_event);
+            console.log(" ");
+            console.log(entry);
 
             if(webhook_event.message.attachments){
                 let atts = webhook_event.message.attachments;
