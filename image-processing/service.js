@@ -9,11 +9,10 @@ exports.parseImageFromFile = function(imageFilePath) {
         isOverlayRequired: true
     };
     // Run and wait the result
-    ocrSpaceApi.parseImageFromLocalFile(imageFilePath, options)
+    return ocrSpaceApi.parseImageFromLocalFile(imageFilePath, options)
         .then(function (parsedResult) {
-            console.log('parsedText: \n', parsedResult.parsedText);
-            console.log('ocrParsedResult: \n', parsedResult.ocrParsedResult);
-        }).catch(function (err) {
-        console.log('ERROR:', err);
-    });
+            console.log('parsedResult: \n', parsedResult);
+            console.log('parsedResult: \n', parsedResult.ocrParsedResult.ParsedResults);
+            return parsedResult.ocrParsedResult.ParsedResults["0"].TextOverlay.Lines;
+        });
 };
