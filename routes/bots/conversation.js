@@ -127,9 +127,9 @@ exports.sendGames = function (request, recipientId, token) {
                         item_url: "https://www.lotto.pl/lotto/mapa-kolektur",
                         image_url: "https://hy2018-koniczynka.herokuapp.com/images/gdzie_padnie_wygrana.png",
                         buttons: [{
-                            type: "web_url",
-                            url: "https://www.quizowa.pl/",
-                            title: "Typuję"
+                            "type":"postback",
+                            "title":"Typuję",
+                            "payload":"subscribe_quiz"
                         }]
                     }, {
                         title: "Kup kupon do godziny 18:00",
@@ -137,12 +137,10 @@ exports.sendGames = function (request, recipientId, token) {
                         item_url: "https://www.lotto.pl/lotto/mapa-kolektur",
                         image_url: "https://hy2018-koniczynka.herokuapp.com/images/wskazana_kolektura.png",
                         buttons: [{
-                            type: "web_url",
-                            url: "https://www.google.pl/maps/dir/52.254699,21.0436229/Przy+Wile%C5%84skiej.+Apteka,+Wile%C5%84ska+9,+03-001+Warszawa/@52.2541613,21.0350818,16z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x471ecc3f414bc595:0x4e9d9d28e8bf3966!2m2!1d21.0357!2d52.256389",
-                            title: "Udaję się do kolektury"
-                        }
-
-                        ]
+                            "type":"postback",
+                            "title":"Wskaż mi kolekturę",
+                            "payload":"subscribe_goto"
+                        }]
                     },
                         {
                             title: "Nie przegap 5 losowań",
@@ -150,9 +148,9 @@ exports.sendGames = function (request, recipientId, token) {
                             item_url: "https://www.lotto.pl/",
                             image_url: "https://hy2018-koniczynka.herokuapp.com/images/strike.png",
                             buttons: [{
-                                type: "web_url",
-                                url: "https://www.lotto.pl/",
-                                title: "Wchodzę do gry"
+                                "type":"postback",
+                                "title":"Gram!",
+                                "payload":"subscribe_5"
                             }]
                         }]
                 }
@@ -197,6 +195,48 @@ exports.sendStores = function (request, recipientId, token) {
                             title: "Pokaż na mapie"
                         }]
                     }, {
+                        title: "Kolektura Lotto",
+                        subtitle: "ul. Modlińska 29",
+                        item_url: "https://www.lotto.pl/lotto/mapa-kolektur",
+                        image_url: "http://bi.gazeta.pl/im/2/10843/z10843362V,Tak-beda-wygladaly-nowe-kolektury-Lotto-w-calym-kr.jpg",
+                        buttons: [{
+                            type: "web_url",
+                            url: "https://www.google.pl/maps/dir/52.254699,21.0436229/Przy+Wile%C5%84skiej.+Apteka,+Wile%C5%84ska+9,+03-001+Warszawa/@52.2541613,21.0350818,16z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x471ecc3f414bc595:0x4e9d9d28e8bf3966!2m2!1d21.0357!2d52.256389",
+                            title: "Pokaż na mapie"
+                        }]
+                    }]
+                }
+            }
+        }
+    };
+    request({
+        url: 'https://graph.facebook.com/v2.6/me/messages?access_token=' + token,
+        method: 'POST',
+        json: messageData
+
+    }, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            console.log("Successfully sent generic message with response %s ", response);
+        } else {
+            console.error("Unable to send message.");
+            console.error(response);
+            console.error(error);
+        }
+    });
+};
+
+exports.sendMap = function (request, recipientId, token) {
+    var messageData = {
+        messaging_type: "RESPONSE",
+        recipient: {
+            id: recipientId
+        },
+        message: {
+            attachment: {
+                type: "template",
+                payload: {
+                    template_type: "generic",
+                    elements: [{
                         title: "Kolektura Lotto",
                         subtitle: "ul. Modlińska 29",
                         item_url: "https://www.lotto.pl/lotto/mapa-kolektur",
