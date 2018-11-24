@@ -6,6 +6,7 @@ var bots = require('./bots/bots');
 // Accepts POST requests at /webhook endpoint
 router.post('/', (req, res) => {
 
+    var PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
     // Parse the request body from the POST
     let body = req.body;
 
@@ -43,7 +44,9 @@ router.post('/', (req, res) => {
 
             if (webhook_event.message) {
                 if (webhook_event.message.text === 'test') {
-                    bots.sendTextMessage(webhook_event.sender.id, "OK, to test.");
+                    console.log("PAGE_ACCESS_TOKEN");
+                    console.log(PAGE_ACCESS_TOKEN);
+                    bots.sendTextMessage(webhook_event.sender.id, "OK, to test.", PAGE_ACCESS_TOKEN);
                 }
             }
 

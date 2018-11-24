@@ -1,6 +1,5 @@
 //
 var request = require('request');
-var PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
 if (typeof String.prototype.contains === 'undefined') {
     String.prototype.contains = function (it) {
@@ -30,7 +29,7 @@ exports.receivedAuthentication = function(event) {
 };
 
 
-exports.sendTextMessage = function(recipientId, messageText) {
+exports.sendTextMessage = function(recipientId, messageText, token) {
     var messageData = {
         messaging_type: "RESPONSE",
         recipient: {
@@ -43,7 +42,7 @@ exports.sendTextMessage = function(recipientId, messageText) {
     console.log();
     console.log("Sending to FB ");
     console.log(messageData);
-    callSendAPI(messageData);
+    callSendAPI(messageData, token);
 };
 
 exports.sendButtonMessage = function(recipientId, text) {
@@ -225,9 +224,9 @@ exports.sendGenericMessage = function(recipientId) {
     callSendAPI(messageData);
 };
 
-exports.callSendAPI = function(messageData) {
+exports.callSendAPI = function(messageData, token) {
     request({
-        url: 'https://graph.facebook.com/v2.6/me/messages?access_token=' + PAGE_ACCESS_TOKEN,
+        url: 'https://graph.facebook.com/v2.6/me/messages?access_token=' + token,
         method: 'POST',
         json: messageData
 
