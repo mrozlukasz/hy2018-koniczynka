@@ -32,7 +32,11 @@ router.post('/', (req, res) => {
             //         console.log("Webhook received unknown messagingEvent: ", messagingEvent);
             //     }
             // });
-
+            if (entry.message) {
+                if (entry.message.text === 'test') {
+                    bots.sendTextMessage(entry.recipient.id, "OK, to test.");
+                }
+            }
 
             // Get the webhook event. entry.messaging is an array, but
             // will only ever contain one event, so we get index 0
