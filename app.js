@@ -10,7 +10,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var webhookRouter = require('./routes/webhook');
 
-var imageProcessing = require('./image-processing/service');
+var imageProcessing = require('./image-processing/index');
 
 var app = express();
 
