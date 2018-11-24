@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Defining schema for our State API
-var StateSchema = new mongoose.Schema({
+var StateSchema = mongoose.Schema({
     _id: String, // sender Id
     conversation: {
         id: String,
@@ -27,4 +27,4 @@ var StateSchema = new mongoose.Schema({
 //Exporting our model
 var StateModel = mongoose.model('State', StateSchema);
 
-module.exports = StateModel;
+exports.StateModel = StateModel;
