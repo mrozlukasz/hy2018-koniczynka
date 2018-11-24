@@ -56,14 +56,14 @@ router.post('/', (req, res) => {
 
                 try {
                     model.StateModel.countDocuments({_id: webhook_event.sender.id}, function (err, count) {
+                        console.log("Count for ", webhook_event.sender.id, " is ", count);
                         if (count === 0) {
                             model.StateModel.create({_id: webhook_event.sender.id, coins: 0}, function (err, ctx) {
                                 if (err) return handleError(err);
                             });
                         } else {
                             let state = model.StateModel.findById(webhook_event.sender.id);
-                            console.info("state");
-                            console.info(state);
+                            console.log("State for ", webhook_event.sender.id, " is ",  state);
                             conversation.sendTextMessage(request, webhook_event.sender.id, "Ilość Twoich monet to " + state.coins, PAGE_ACCESS_TOKEN);
                         }
                     });
@@ -82,7 +82,7 @@ router.post('/', (req, res) => {
                             message += "\n" + _.join(c.numbers)
                         });
                         let date = coupons[0].lotteryDate;
-                        message += `\n losowanie odbędzie się ${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+                        message += `\n losowanie odbędzie się ${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
                         message += "\n Poinformuję Cię o wynikach.";
 
                         conversation.sendTextMessage(request, webhook_event.sender.id, message, PAGE_ACCESS_TOKEN);
