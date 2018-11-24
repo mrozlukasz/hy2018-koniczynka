@@ -62,9 +62,11 @@ router.post('/', (req, res) => {
                                 if (err) return handleError(err);
                             });
                         } else {
-                            let state = model.StateModel.findById(webhook_event.sender.id);
-                            console.log("State for ", webhook_event.sender.id, " is ",  state);
-                            conversation.sendTextMessage(request, webhook_event.sender.id, "Ilość Twoich monet to " + state.coins, PAGE_ACCESS_TOKEN);
+                            model.StateModel.findById(webhook_event.sender.id).exec((err, state) => {
+                                console.log("State for ", webhook_event.sender.id, " is ",  state);
+                                conversation.sendTextMessage(request, webhook_event.sender.id, "Ilość Twoich monet to " + state.coins, PAGE_ACCESS_TOKEN);
+                            });
+
                         }
                     });
                 } catch (e) {
