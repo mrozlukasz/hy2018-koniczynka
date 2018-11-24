@@ -79,6 +79,7 @@ router.post('/', (req, res) => {
                         });
                         let date = coupons[0].lotteryDate;
                         message += `\n losowanie odbędzie się ${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+                        message += "Poinformuję Cię o wynikach.";
 
                         conversation.sendTextMessage(request, webhook_event.sender.id, message, PAGE_ACCESS_TOKEN);
                     }).catch(e => {
@@ -88,8 +89,9 @@ router.post('/', (req, res) => {
                         conversation.sendTextMessage(request, webhook_event.sender.id, message, PAGE_ACCESS_TOKEN);
                     });
 
-                let message = "Dziękuję za przesłanie kuponu, próbuję go odczytać.";
+                let message = "Próbuję go odczytać kupon ...";
                 conversation.sendTextMessage(request, webhook_event.sender.id, message, PAGE_ACCESS_TOKEN);
+                conversation.sendTypingOn(request, webhook_event.sender.id, PAGE_ACCESS_TOKEN);
             }
 
         });

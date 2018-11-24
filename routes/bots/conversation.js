@@ -24,6 +24,30 @@ exports.sendTextMessage = function (request, recipientId, textMessage, token) {
     });
 };
 
+exports.sendTypingOn = function(request, recipientId, token){
+    let messageData = {
+        recipient: {
+            id: recipientId
+        },
+        sender_action:"typing_on"
+    };
+
+    request({
+        url: 'https://graph.facebook.com/v2.6/me/messages?access_token=' + token,
+        method: 'POST',
+        json: messageData
+
+    }, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            console.log("Successfully sent generic message with response %s ", response);
+        } else {
+            console.error("Unable to send message.");
+            console.error(response);
+            console.error(error);
+        }
+    });
+};
+
 exports.sendGames = function (request, recipientId, token) {
     var messageData = {
         messaging_type: "RESPONSE",
