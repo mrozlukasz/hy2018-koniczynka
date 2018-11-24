@@ -241,7 +241,7 @@ header nav li:last-child{
 
 .i2 {
 	animation:
-		nudge 5s linear infinite alternate;
+		nudge-1 5s linear infinite alternate;
 	position: absolute;
 	width: 60%;
 	height: auto;
@@ -252,7 +252,7 @@ header nav li:last-child{
 
 .i3 {
 	animation:
-		nudge 4s ease infinite alternate;
+		nudge-2 4s ease infinite alternate;
 
 	position: absolute;
 	width: 50%;
@@ -264,7 +264,7 @@ header nav li:last-child{
 
 .i4 {
 	animation:
-		nudge 3s linear infinite alternate;
+		nudge-1 3s linear infinite alternate;
 	position: absolute;
 	width: 40%;
 	height: auto;
@@ -273,7 +273,7 @@ header nav li:last-child{
 	z-index: 1;
 }
 
-@keyframes nudge {
+@keyframes nudge-1 {
   0%, 100% {
     transform: translate(0, 0);
   }
@@ -287,10 +287,32 @@ header nav li:last-child{
   }
 }
 
+@keyframes nudge-2 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(15px, 20px);
+  }
+
+  80% {
+    transform: translate(-10px, 16px);
+  }
+}
+
 @media (max-width: 800px){
 
 	.hero{
 		min-height: 600px;
+	}
+
+	.hero .background-image{
+		display: none;
+	}
+
+	.hero_illustration {
+		display: none;
 	}
 
 	.hero h1{
@@ -303,6 +325,13 @@ header nav li:last-child{
 
 	.hero a.btn{
 		padding: 15px 40px;
+	}
+
+	.intro {
+		position: relative;
+		text-align: center;
+		margin: 0 auto;
+		left: initial;
 	}
 
 }
