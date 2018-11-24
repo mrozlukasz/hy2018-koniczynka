@@ -71,7 +71,7 @@ router.post('/', (req, res) => {
             }
 
             if(webhook_event.message.attachments){
-                setTimeout(() => conversation.sendTypingOn(request, webhook_event.sender.id, PAGE_ACCESS_TOKEN), 500);
+
 
                 ocr.process(webhook_event)
                     .then(coupons => {
@@ -91,8 +91,9 @@ router.post('/', (req, res) => {
                         conversation.sendTextMessage(request, webhook_event.sender.id, message, PAGE_ACCESS_TOKEN);
                     });
 
-                let message = "Próbuję go odczytać kupon ...";
+                let message = "\n Próbuję go odczytać kupon ...";
                 conversation.sendTextMessage(request, webhook_event.sender.id, message, PAGE_ACCESS_TOKEN);
+                setTimeout(() => conversation.sendTypingOn(request, webhook_event.sender.id, PAGE_ACCESS_TOKEN), 700);
 
 
             }
