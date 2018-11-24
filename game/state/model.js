@@ -63,7 +63,7 @@ exports.getCoins = function (senderId) {
 
 exports.incCoins = function (senderId, increment) {
     return getOrCreate(senderId).then((state) => {
-        console.log("state -> ", state);
+        //console.log("state -> ", state);
         state.coins = state.coins + increment;
         state.save();
         return state.coins;
@@ -72,7 +72,7 @@ exports.incCoins = function (senderId, increment) {
 
 exports.registerCoupons = function (senderId, coupons) {
     return getOrCreate(senderId).then((state) => {
-        console.log("state -> ", state);
+        //console.log("state -> ", state);
         state.coupons = _.concat(state.coupons, coupons);
         state.coins = state.coins + 10;
         state.save();

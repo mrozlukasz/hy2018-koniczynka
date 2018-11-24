@@ -11,8 +11,8 @@ exports.parseImageFromFile = function(imageFilePath) {
     // Run and wait the result
     return ocrSpaceApi.parseImageFromLocalFile(imageFilePath, options)
         .then(function (parsedResult) {
-            console.log('parsedResult: \n', parsedResult);
-            console.log('parsedResult: \n', parsedResult.ocrParsedResult.ParsedResults);
+            //console.log('parsedResult: \n', parsedResult);
+            //console.log('parsedResult: \n', parsedResult.ocrParsedResult.ParsedResults);
             return parsedResult.ocrParsedResult.ParsedResults["0"].TextOverlay.Lines;
         });
 };
