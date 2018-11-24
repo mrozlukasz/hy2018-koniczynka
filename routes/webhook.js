@@ -15,8 +15,8 @@ router.post('/', (req, res) => {
     // Parse the request body from the POST
     let body = req.body;
 
-    console.info(req.headers);
-    console.info(body);
+    //console.info(req.headers);
+    //console.info(body);
 
     // Check the webhook event is from a Page subscription
     if (body.object === 'page') {
