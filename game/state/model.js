@@ -50,9 +50,10 @@ function getOrCreate(senderId) {
                     console.log("created new state for sender id ", senderId);
                     resolve(ctx);
                 });
+            } else {
+                console.log("found state for sender id ", senderId);
+                resolve(state);
             }
-            console.log("found state for sender id ", senderId);
-            resolve(state);
         });
     });
 }
