@@ -26,7 +26,7 @@ exports.handle = function (request, event, token) {
             games.subscribe(sender, games.types.FIVE_IN_ROW)
                 .then(g => {
                     console.log("Subscription completed, ", g);
-                    let message = `Twój obecny wynik w grze ${g.progress}/${g.max}`;
+                    let message = `Twój obecny wynik w grze ${g.progress}/${g.max}.\nSkanuj kupony, żeby zdobywać punkty.`;
                     conversations.sendTextMessage(request, sender, message, token);
                 });
 
@@ -36,7 +36,7 @@ exports.handle = function (request, event, token) {
             games.subscribe(sender, games.types.GO_TO)
                 .then(g => {
                     console.log("Subscription completed, sending map to user");
-                    conversations.sendTextMessage(request, sender, "Wspaniale! Udaj się do kolektury następującej kolektury. Kupując kupon do godziny 18, zdobędziesz monety.", token);
+                    conversations.sendTextMessage(request, sender, "Wspaniale! Udaj się do następującej kolektury. Kupując kupon do godziny 18, zdobędziesz monety.", token);
                     conversations.sendMap(request, sender, token);
                 });
 
