@@ -40,17 +40,20 @@ let StateModel = mongoose.model('State', StateSchema);
 function getOrCreate(senderId) {
     return new Promise((resolve, reject) => {
         StateModel.findById(senderId).exec((err, state) => {
-            if (err) {
+            console.log("State is ", state);
+            if (err || state == null) {
                 StateModel.create({_id: senderId, coins: 0}, function (err, ctx) {
                     if (err) {
+                        console.log("Creating state fail",err);
                         reject(err);
                     }
                     console.log("created new state for sender id ", senderId);
                     resolve(ctx);
                 });
+            } else {
+                console.log("found state for sender id ", senderId);
+                resolve(state);
             }
-            console.log("found state for sender id ", senderId);
-            resolve(state);
         });
     });
 }

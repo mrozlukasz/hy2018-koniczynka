@@ -30,16 +30,19 @@ exports.types = {
     GUESS_WINNERS:"GUESS_WINNERS"
 };
 
-exports.subscribe = function (senderId, game) {
-    model.getOrCreate(senderId)
+exports.subscribe = function (senderId, gameCode) {
+    return model.getOrCreate(senderId)
         .then(state => {
-            let game  = _(state.games).filter({code:game}).first();
+            let game  = _(state.games).filter({code:gameCode}).first();
 
             if (!game) {
-                state.games.push(GAMES[game]);
+                game = GAMES[gameCode];
+                state.games.push(game);
                 state.save();
+                console.log("Not subscribed to game, game is ", game);
                 return game;
             }else {
+                console.log("Subscribed to game, game is ", game);
                 return game;
             }
         })
