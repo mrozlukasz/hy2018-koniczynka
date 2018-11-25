@@ -49,17 +49,6 @@ router.post('/', (req, res) => {
                         }
 
 
-                        if (webhook_event.message.text === 'Moje monety') {
-                            model.getCoins(webhook_event.sender.id).then((state) => {
-                                console.log("State for ", webhook_event.sender.id, " is ", state);
-                                if (!_.isEmpty(state.coins)) {
-                                    conversation.sendTextMessage(request, webhook_event.sender.id, "Ilość Twoich monet to " + state.coins, PAGE_ACCESS_TOKEN);
-                                } else {
-                                    conversation.sendTextMessage(request, webhook_event.sender.id, "Czy my się znamy? :)", PAGE_ACCESS_TOKEN);
-                                }
-                            });
-                        }
-
                         if (webhook_event.message.attachments) {
                             ocr.process(webhook_event)
                                 .then(coupons => {
@@ -75,11 +64,11 @@ router.post('/', (req, res) => {
                                     model.registerCoupons(webhook_event.sender.id, coupons);
                                     games.addProgress(webhook_event.sender.id, games.types.FIVE_IN_ROW).then(s => {
                                         if (s === "FINISHED") {
-                                            conversation.sendTextMessage(request, webhook_event.sender.id, "Gratuluję udało ci się zdobyć monetę", PAGE_ACCESS_TOKEN);
+                                            conversation.sendTextMessage(request, webhook_event.sender.id, "Gratuluję udało ci ukończyć nie przegapić 5 losowań, zdobywasz monetę", PAGE_ACCESS_TOKEN);
                                         }
                                         games.addProgress(webhook_event.sender.id, games.types.GO_TO).then(s => {
                                             if (s === "FINISHED") {
-                                                conversation.sendTextMessage(request, webhook_event.sender.id, "Gratuluję udało ci się zdobyć monetę", PAGE_ACCESS_TOKEN);
+                                                conversation.sendTextMessage(request, webhook_event.sender.id, "Gratuluję udało ci się kupić kupon we wskazanej kolekturze, zdobywasz monetę", PAGE_ACCESS_TOKEN);
                                             }
                                         })
                                     });

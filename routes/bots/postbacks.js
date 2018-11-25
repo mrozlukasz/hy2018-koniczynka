@@ -14,18 +14,32 @@ exports.handle = function (request, event, token) {
             conversations.sendTextMessage(request, sender, "Najbliższe, czynne kolektury to:", token);
             conversations.sendStores(request, sender, token);
         } else if (payload === 'coins') {
-            conversations.sendCoins(request, sender, 10, token);
+            console.log("Asking for user coins");
+            model.getCoins(webhook_event.sender.id).then((state) => {
+                console.log("State for ", webhook_event.sender.id, " is ", state);
+                if (!_.isEmpty(state.coins)) {
+                    console.log("Sending to user that he have ", state.coins);
+                    conversations.sendCoins(request, webhook_event.sender.id, state.coins, PAGE_ACCESS_TOKEN);
+                } else {
+                    console.log("Sending to user that we don't know him");
+                    conversation.sendTextMessage(request, webhook_event.sender.id, "Czy my się znamy? :)", PAGE_ACCESS_TOKEN);
+                }
+            });
         } else if (payload === 'subscribe_5') {
+            console.log("Subscribing user to 5 in a row");
             games.subscribe(sender, games.types.FIVE_IN_ROW)
                 .then(g => {
-                    console.log("Subscription completed, ",g);
+                    console.log("Subscription completed, ", g);
                     let message = `Twój obecny wynik w grze ${g.progress}/${g.max}`;
                     conversations.sendTextMessage(request, sender, message, token);
                 });
 
-        }  else if (payload === 'subscribe_goto') {
+        } else if (payload === 'subscribe_goto') {
+            console.log("Subscribing user to GOTO");
+
             games.subscribe(sender, games.types.GO_TO)
                 .then(g => {
+                    console.log("Subscription completed, sending map to user");
                     conversations.sendMap(request, sender, token);
                 });
 
