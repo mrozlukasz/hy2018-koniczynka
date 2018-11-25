@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const _ = require('lodash');
+const conversation = require('../../routes/bots/conversation');
+const request = require('request');
 
 let GamesSchema = mongoose.Schema({
     code: String,
@@ -32,10 +34,8 @@ var StateSchema = mongoose.Schema({
         default: Date.now
     }
 });
-//Exporting our model
-var StateModel = mongoose.model('State', StateSchema);
 
-exports.StateModel = StateModel;
+let StateModel = mongoose.model('State', StateSchema);
 
 function getOrCreate(senderId) {
     return new Promise((resolve, reject) => {
@@ -55,22 +55,22 @@ function getOrCreate(senderId) {
     });
 }
 
-exports.getCoins = function (senderId) {
+function getCoins (senderId) {
     return getOrCreate(senderId).then((state) => {
         return state.coins;
     });
-};
+}
 
-exports.incCoins = function (senderId, increment) {
+function incCoins (senderId, increment) {
     return getOrCreate(senderId).then((state) => {
         //console.log("state -> ", state);
         state.coins = state.coins + increment;
         state.save();
         return state.coins;
     });
-};
+}
 
-exports.registerCoupons = function (senderId, coupons) {
+function registerCoupons (senderId, coupons) {
     return getOrCreate(senderId).then((state) => {
         //console.log("state -> ", state);
         state.coupons = _.concat(state.coupons, coupons);
@@ -78,6 +78,32 @@ exports.registerCoupons = function (senderId, coupons) {
         state.save();
         return state.coins;
     });
-};
+}
+
+function findWinners (arr) {
+    let PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+
+    StateModel.find({}, (err, state) => {
+        if(err) {
+            console.error(err);
+        } else {
+            for (let c in state.coupons) {
+                let res = _.intersection(c.numbers, arr);
+                if (_.size(res) > 1) {
+                    state.coins = state.coins + _.size(res) * 100;
+                }
+
+                conversation.sendTextMessage(request, state._id, "Wygrana!!! " + _.size(res) > 1, PAGE_ACCESS_TOKEN);
+            }
+        }
+    });
+}
+
+//Exporting our model
+exports.StateModel = StateModel;
 
 exports.getOrCreate = getOrCreate;
+exports.getCoins = getCoins;
+exports.incCoins = incCoins;
+exports.registerCoupons = registerCoupons;
+exports.findWinners = findWinners;
