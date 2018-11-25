@@ -39,8 +39,10 @@ exports.subscribe = function (senderId, gameCode) {
                 game = GAMES[gameCode];
                 state.games.push(game);
                 state.save();
+                console.log("Not subscribed to game, game is ", game);
                 return game;
             }else {
+                console.log("Subscribed to game, game is ", game);
                 return game;
             }
         })
