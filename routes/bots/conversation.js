@@ -192,7 +192,7 @@ exports.sendStores = function (request, recipientId, token) {
                         image_url: "https://media2.pl/g/780/16059.jpg",
                         buttons: [{
                             type: "web_url",
-                            url: "https://www.google.pl/maps/dir/52.254699,21.0436229/Przy+Wile%C5%84skiej.+Apteka,+Wile%C5%84ska+9,+03-001+Warszawa/@52.2541613,21.0350818,16z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x471ecc3f414bc595:0x4e9d9d28e8bf3966!2m2!1d21.0357!2d52.256389",
+                            url: "https://www.google.pl/maps/dir/52.293979+21.007753/Modli%C5%84ska+8,+05-077+Warszawa/@52.2948783,21.0043761,18z/data=!3m1!4b1!4m11!4m10!1m3!2m2!1d21.007753!2d52.293979!1m5!1m1!1s0x471ec944d5f80aad:0x5bc05a6c54123120!2m2!1d21.0025641!2d52.2950978",
                             title: "Pokaż na mapie"
                         }]
                     }, {
@@ -202,7 +202,7 @@ exports.sendStores = function (request, recipientId, token) {
                         image_url: "http://bi.gazeta.pl/im/2/10843/z10843362V,Tak-beda-wygladaly-nowe-kolektury-Lotto-w-calym-kr.jpg",
                         buttons: [{
                             type: "web_url",
-                            url: "https://www.google.pl/maps/dir/52.254699,21.0436229/Przy+Wile%C5%84skiej.+Apteka,+Wile%C5%84ska+9,+03-001+Warszawa/@52.2541613,21.0350818,16z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x471ecc3f414bc595:0x4e9d9d28e8bf3966!2m2!1d21.0357!2d52.256389",
+                            url: "https://www.google.pl/maps/dir/52.293979+21.007753/Modli%C5%84ska+29,+05-110+Jab%C5%82onna/@52.329635,20.934173,13z/data=!3m1!4b1!4m11!4m10!1m3!2m2!1d21.007753!2d52.293979!1m5!1m1!1s0x471eb7e6c1fe8887:0x14f5fe8d1038dd17!2m2!1d20.9309544!2d52.3675377",
                             title: "Pokaż na mapie"
                         }]
                     }]
@@ -240,11 +240,11 @@ exports.sendMap = function (request, recipientId, token) {
                     elements: [{
                         title: "Kolektura Lotto",
                         subtitle: "ul. Modlińska 29",
-                        item_url: "https://www.lotto.pl/lotto/mapa-kolektur",
+                        item_url: "https://www.google.pl/maps/dir/52.293979+21.007753/Modli%C5%84ska+29,+05-110+Jab%C5%82onna/@52.329635,20.934173,13z/data=!3m1!4b1!4m11!4m10!1m3!2m2!1d21.007753!2d52.293979!1m5!1m1!1s0x471eb7e6c1fe8887:0x14f5fe8d1038dd17!2m2!1d20.9309544!2d52.3675377",
                         image_url: "http://bi.gazeta.pl/im/2/10843/z10843362V,Tak-beda-wygladaly-nowe-kolektury-Lotto-w-calym-kr.jpg",
                         buttons: [{
                             type: "web_url",
-                            url: "https://www.google.pl/maps/dir/52.254699,21.0436229/Przy+Wile%C5%84skiej.+Apteka,+Wile%C5%84ska+9,+03-001+Warszawa/@52.2541613,21.0350818,16z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x471ecc3f414bc595:0x4e9d9d28e8bf3966!2m2!1d21.0357!2d52.256389",
+                            url: "https://www.google.pl/maps/dir/52.293979+21.007753/Modli%C5%84ska+29,+05-110+Jab%C5%82onna/@52.329635,20.934173,13z/data=!3m1!4b1!4m11!4m10!1m3!2m2!1d21.007753!2d52.293979!1m5!1m1!1s0x471eb7e6c1fe8887:0x14f5fe8d1038dd17!2m2!1d20.9309544!2d52.3675377",
                             title: "Pokaż na mapie"
                         }]
                     }]
