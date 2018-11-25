@@ -86,7 +86,7 @@ function registerCoupons (senderId, coupons) {
 function findWinners (arr) {
     let PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
-    StateModel.find({}, function(err, docs) {
+    StateModel.find({}, function(err, state) {
         if (!err){
             for (let c in state.coupons) {
                 console.log('c -> ', c);
