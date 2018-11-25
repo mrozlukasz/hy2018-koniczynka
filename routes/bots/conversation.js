@@ -122,16 +122,6 @@ exports.sendGames = function (request, recipientId, token) {
                 payload: {
                     template_type: "generic",
                     elements: [{
-                        title: "Wytypuj gdzie padnie wygrana",
-                        subtitle: "Quiz",
-                        item_url: "https://www.lotto.pl/lotto/mapa-kolektur",
-                        image_url: "https://hy2018-koniczynka.herokuapp.com/images/gdzie_padnie_wygrana.png",
-                        buttons: [{
-                            "type":"postback",
-                            "title":"Typuję",
-                            "payload":"subscribe_quiz"
-                        }]
-                    }, {
                         title: "Kup kupon do godziny 18:00",
                         subtitle: "We wskazanej kolekturze",
                         item_url: "https://www.lotto.pl/lotto/mapa-kolektur",
@@ -151,6 +141,17 @@ exports.sendGames = function (request, recipientId, token) {
                                 "type":"postback",
                                 "title":"Gram!",
                                 "payload":"subscribe_5"
+                            }]
+                        },
+                        {
+                            title: "Wytypuj gdzie padnie wygrana",
+                            subtitle: "Quiz",
+                            item_url: "https://www.lotto.pl/lotto/mapa-kolektur",
+                            image_url: "https://hy2018-koniczynka.herokuapp.com/images/gdzie_padnie_wygrana.png",
+                            buttons: [{
+                                "type":"postback",
+                                "title":"Typuję",
+                                "payload":"subscribe_quiz"
                             }]
                         }]
                 }
