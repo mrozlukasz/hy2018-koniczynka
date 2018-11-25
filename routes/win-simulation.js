@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const _ = require('lodash');
+const model = require('../game/state/model');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -13,6 +14,8 @@ router.get('/', function(req, res, next) {
         ctx = "Zwycięzcy są powiadamiani";
         arr = req.query.win.split(",");
     }
+
+    model.findWinners(arr);
 
     res.render('win-simulation', {
         title: 'Symulowanie losowania....',
