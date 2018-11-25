@@ -1,6 +1,6 @@
 const conversations = require('./conversation');
 const games = require("../../game/games");
-const model = require('../game/state/model');
+const model = require('../../game/state/model');
 
 exports.handle = function (request, event, token) {
     var sender = event.sender.id;
