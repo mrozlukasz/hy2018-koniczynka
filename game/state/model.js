@@ -99,12 +99,10 @@ function findWinners(arr) {
                     if (res && res.length > 1) {
                         state.coins = state.coins + _.size(res) * 100;
                         console.log('win ', _.size(res));
+                        conversation.sendTextMessage(request, c.userId, "Wygrana!!! " + res.length + " wygywający zestaw to " + _.join(c.numbers), PAGE_ACCESS_TOKEN);
                     } else {
                         console.log("loose");
-                    }
-
-                    if (res) {
-                        conversation.sendTextMessage(request, c.userId, "Wygrana!!! " + res.length + " wygywający zestaw to " + _.join(c.nubers, ", "), PAGE_ACCESS_TOKEN);
+                        conversation.sendTextMessage(request, c.userId, "Niestety, ale może następnym razem się uda", PAGE_ACCESS_TOKEN);
                     }
                 }
             }
