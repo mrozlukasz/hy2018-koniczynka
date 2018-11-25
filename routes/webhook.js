@@ -34,9 +34,10 @@ router.post('/', (req, res) => {
                 let webhook_event = entry.messaging[0];
                 console.log(webhook_event);
                 console.log(" ");
-                console.log(entry);
+
                 try {
                     if (webhook_event.postback) {
+                        console.log(webhook_event.postback);
                         postbacks.handle(request, webhook_event, token);
                         res.status(200).send('EVENT_RECEIVED');
                         return;
