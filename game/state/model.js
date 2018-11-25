@@ -88,9 +88,13 @@ function findWinners (arr) {
             console.error(err);
         } else {
             for (let c in state.coupons) {
+                console.log('c -> ', c);
                 let res = _.intersection(c.numbers, arr);
                 if (_.size(res) > 1) {
                     state.coins = state.coins + _.size(res) * 100;
+                    console.log('win ', _.size(res));
+                } else {
+                    console.log("loose");
                 }
 
                 conversation.sendTextMessage(request, state._id, "Wygrana!!! " + _.size(res) > 1, PAGE_ACCESS_TOKEN);
