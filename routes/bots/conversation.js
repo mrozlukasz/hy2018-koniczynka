@@ -50,10 +50,10 @@ exports.menuButtons = function (request, token) {
 
     }, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            console.log("Successfully sent generic message with response %s ", response);
+            console.log("Successfully sent generic message with response ");
         } else {
             console.error("Unable to send message.");
-            console.error(response);
+            // console.error(response);
             console.error(error);
         }
     });
@@ -77,10 +77,10 @@ exports.sendTextMessage = function (request, recipientId, textMessage, token) {
 
     }, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            console.log("Successfully sent generic message with response %s ", response);
+            console.log("Successfully sent generic message with response  ");
         } else {
             console.error("Unable to send message.");
-            console.error(response);
+            // console.error(response);
             console.error(error);
         }
     });
@@ -101,10 +101,10 @@ exports.sendTypingOn = function(request, recipientId, token){
 
     }, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            console.log("Successfully sent generic message with response %s ", response);
+            console.log("Successfully sent generic message with response ");
         } else {
             console.error("Unable to send message.");
-            console.error(response);
+            // console.error(response);
             console.error(error);
         }
     });
@@ -164,10 +164,10 @@ exports.sendGames = function (request, recipientId, token) {
 
     }, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            console.log("Successfully sent generic message with response %s ", response);
+            console.log("Successfully sent generic message with response  ");
         } else {
             console.error("Unable to send message.");
-            console.error(response);
+            // console.error(response);
             console.error(error);
         }
     });
@@ -216,10 +216,10 @@ exports.sendStores = function (request, recipientId, token) {
 
     }, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            console.log("Successfully sent generic message with response %s ", response);
+            console.log("Successfully sent generic message with response  ");
         } else {
             console.error("Unable to send message.");
-            console.error(response);
+            // console.error(response);
             console.error(error);
         }
     });
@@ -258,10 +258,10 @@ exports.sendMap = function (request, recipientId, token) {
 
     }, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            console.log("Successfully sent generic message with response %s ", response);
+            console.log("Successfully sent generic message with response  ");
         } else {
             console.error("Unable to send message.");
-            console.error(response);
+            // console.error(response);
             console.error(error);
         }
     });
@@ -314,10 +314,10 @@ exports.sendPrizes = function (request, recipientId, token) {
 
     }, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            console.log("Successfully sent generic message with response %s ", response);
+            console.log("Successfully sent generic message with response  ");
         } else {
             console.error("Unable to send message.");
-            console.error(response);
+            // console.error(response);
             console.error(error);
         }
     });
