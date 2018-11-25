@@ -88,9 +88,11 @@ function findWinners(arr) {
 
     StateModel.find({}, function (err, states) {
         if (!err) {
-            for (var state in states) {
-                console.log('state ', state);
-                for (var c in state.coupons) {
+            for (let i = 0; i < states.length; i++) {
+                let state = states[i];
+                console.log('s -> ', state);
+                for (let j = 0; j < state.coupons.length; j++) {
+                    let c = state.coupons[j];
                     console.log('c -> ', c);
                     let res = _.intersection(c.numbers, arr);
                     if (_.size(res) > 1) {
