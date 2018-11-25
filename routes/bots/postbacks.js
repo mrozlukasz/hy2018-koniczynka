@@ -18,7 +18,7 @@ exports.handle = function (request, event, token) {
         } else if (payload === 'subscribe_5') {
             games.subscribe(sender, games.types.FIVE_IN_ROW)
                 .then(g => {
-                    let message = `Twój obecny wynik w grze ${g.progress}/${g.max}`;
+                    let message = `Twój obecny wynik w grze 0/5`;
                     conversations.sendTextMessage(request, sender, message, token);
                 });
 
