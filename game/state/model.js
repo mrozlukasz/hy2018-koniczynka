@@ -104,7 +104,7 @@ function findWinners(arr) {
                     }
 
                     if (res) {
-                        conversation.sendTextMessage(request, c.userId, "Wygrana!!! " + _.size(res) > 1, PAGE_ACCESS_TOKEN);
+                        conversation.sendTextMessage(request, c.userId, "Wygrana!!! " + res.length + " wygywający zestaw to " + _.join(c.nubers, ", "), PAGE_ACCESS_TOKEN);
                     }
                 }
             }
