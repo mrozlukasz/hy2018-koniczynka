@@ -36,8 +36,8 @@ exports.handle = function (request, event, token) {
                     .then(g => {
                         console.log("Subscription for quiz completed, ", g);
                         let message = `Jesteś zasubskrybowany do gry w quizie.
-                        W tej chwili trwają prace nad ułatwieniem typowania miejsca wygranje,
-                        odezwę się do ciebie jak tylko Quiz będzie gotowy.`;
+W tej chwili trwają prace nad ułatwieniem typowania miejsca wygranje,
+odezwę się do ciebie jak tylko Quiz będzie gotowy.`;
                         conversations.sendTextMessage(request, sender, message, token);
                     });
             } catch (e) {
