@@ -8,7 +8,7 @@ exports.handle = function (request, event, token) {
 
     if (payload) {
         if (payload === 'welcome') {
-            conversations.sendTextMessage(request, sender, "Witaj. Nazywam się Koniczynka. Prześlij mi zdjęcie kuponu i zagrajmy w grę", token);
+            conversations.sendTextMessage(request, sender, "Witaj. Nazywam się Koniczynka. Prześlij mi zdjęcie kuponu, powiadomię Cię o wynikach losowania. Wysyłając kupon otrzymujesz dostęp do gier i quizów. Zagrajmy razem. Powodzenia!", token);
         } else if (payload === 'games') {
             conversations.sendGames(request, sender, token);
         } else if (payload === 'stations') {
@@ -41,13 +41,14 @@ exports.handle = function (request, event, token) {
             games.subscribe(sender, games.types.GO_TO)
                 .then(g => {
                     console.log("Subscription completed, sending map to user");
+                    conversations.sendTextMessage(request, sender, "Wspaniale! Udaj się do kolektury następującej kolektury. Kupując kupon do godziny 18, zdobędziesz monety.", token);
                     conversations.sendMap(request, sender, token);
                 });
 
         } else if (payload === 'prizes') {
             conversations.sendPrizes(request, sender, token);
         } else if (payload === 'help') {
-            conversations.sendTextMessage(request, sender, "Możesz przesłać mi zdjęcie nowego kuponu lotto i dołączyć do gry. Dostępne gry to:", token);
+            conversations.sendTextMessage(request, sender, "Możesz przesłać mi zdjęcie nowego kuponu lotto a ja powiadomię Cię o wynikach losowania. Wysyłając kupon otrzymujesz dostęp do gier i quizów. Dostępne gry to:", token);
             conversations.sendGames(request, sender, token);
         }
 
