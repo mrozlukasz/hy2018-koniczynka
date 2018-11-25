@@ -17,10 +17,9 @@ exports.handle = function (request, event, token) {
             conversations.sendStores(request, sender, token);
         } else if (payload === 'coins') {
             console.log("Asking for user coins");
-            model.getCoins(sender).then((state) => {
-                console.log("State for ", sender, " is ", state);
-                console.log("Sending to user that he have ", state.coins);
-                conversations.sendCoins(request, sender, state.coins, token);
+            model.getCoins(sender).then((coins) => {
+                console.log("Coins for ", sender, " is ", coins);
+                conversations.sendCoins(request, sender, coins, token);
             });
         } else if (payload === 'subscribe_5') {
             console.log("Subscribing user to 5 in a row");
