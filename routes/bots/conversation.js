@@ -11,7 +11,7 @@ exports.sendWin = function(request, recipientId, game,  token) {
                     template_type: "generic",
                     elements: [{
                         title: "Zdobywasz monetę!",
-                        subtitle: "" + game,
+                        subtitle: "Wygrana w \"" + game + "\"",
                         item_url: "https://hy2018-koniczynka.herokuapp.com/",
                         image_url: "https://hy2018-koniczynka.herokuapp.com/images/coins.png",
                         buttons: [{
