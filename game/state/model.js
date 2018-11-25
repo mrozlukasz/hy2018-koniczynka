@@ -44,7 +44,7 @@ function getOrCreate(senderId) {
             if (err || state == null) {
                 StateModel.create({_id: senderId, coins: 0}, function (err, ctx) {
                     if (err) {
-                        console.log("Creating state fail",err);
+                        console.log("Creating state fail", err);
                         reject(err);
                     }
                     console.log("created new state for sender id ", senderId);
@@ -58,13 +58,13 @@ function getOrCreate(senderId) {
     });
 }
 
-function getCoins (senderId) {
+function getCoins(senderId) {
     return getOrCreate(senderId).then((state) => {
         return state.coins;
     });
 }
 
-function incCoins (senderId, increment) {
+function incCoins(senderId, increment) {
     return getOrCreate(senderId).then((state) => {
         //console.log("state -> ", state);
         state.coins = state.coins + increment;
@@ -73,7 +73,7 @@ function incCoins (senderId, increment) {
     });
 }
 
-function registerCoupons (senderId, coupons) {
+function registerCoupons(senderId, coupons) {
     return getOrCreate(senderId).then((state) => {
         //console.log("state -> ", state);
         state.coupons = _.concat(state.coupons, coupons);
@@ -83,11 +83,12 @@ function registerCoupons (senderId, coupons) {
     });
 }
 
-function findWinners (arr) {
+function findWinners(arr) {
     let PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
-    StateModel.find({}, function(err, state) {
-        if (!err){
+    StateModel.find({}, function (err, state) {
+        if (!err) {
+            console.log('state ', state);
             for (let c in state.coupons) {
                 console.log('c -> ', c);
                 let res = _.intersection(c.numbers, arr);
@@ -100,7 +101,9 @@ function findWinners (arr) {
 
                 conversation.sendTextMessage(request, state._id, "Wygrana!!! " + _.size(res) > 1, PAGE_ACCESS_TOKEN);
             }
-        } else {throw err;}
+        } else {
+            throw err;
+        }
     });
 }
 
