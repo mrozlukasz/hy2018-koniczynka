@@ -16,14 +16,14 @@ exports.handle = function (request, event, token) {
         } else if (payload === 'coins') {
             conversations.sendCoins(request, sender, 10, token);
         } else if (payload === 'subscribe_5') {
-            games.subscribe(sender, games.type.FIVE_IN_ROW)
+            games.subscribe(sender, games.types.FIVE_IN_ROW)
                 .then(g => {
                     let message = `Twój obecny wynik w grze ${g.progress}/${g.max}`;
                     conversations.sendTextMessage(request, sender, message, token);
                 });
 
         }  else if (payload === 'subscribe_goto') {
-            games.subscribe(sender, games.type.GO_TO)
+            games.subscribe(sender, games.types.GO_TO)
                 .then(g => {
                     conversations.sendMap(request, sender, token);
                 });
