@@ -38,7 +38,7 @@ router.post('/', (req, res) => {
                 try {
                     if (webhook_event.postback) {
                         console.log(webhook_event.postback);
-                        postbacks.handle(request, webhook_event, token);
+                        postbacks.handle(request, webhook_event, PAGE_ACCESS_TOKEN);
                         res.status(200).send('EVENT_RECEIVED');
                         return;
                     }
