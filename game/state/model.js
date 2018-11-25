@@ -93,16 +93,19 @@ function findWinners(arr) {
                 //console.log('s -> ', state);
                 for (let j = 0; j < state.coupons.length; j++) {
                     let c = state.coupons[j];
-                    //console.log('c -> ', c);
+                    console.log('arr ', arr);
+                    console.log('c.numbers -> ', c.numbers);
                     let res = _.intersection(c.numbers, arr);
-                    if (_.size(res) > 1) {
+                    if (res && res.length > 1) {
                         state.coins = state.coins + _.size(res) * 100;
                         console.log('win ', _.size(res));
                     } else {
                         console.log("loose");
                     }
 
-                    conversation.sendTextMessage(request, c.userId, "Wygrana!!! " + _.size(res) > 1, PAGE_ACCESS_TOKEN);
+                    if (res) {
+                        conversation.sendTextMessage(request, c.userId, "Wygrana!!! " + _.size(res) > 1, PAGE_ACCESS_TOKEN);
+                    }
                 }
             }
         } else {
