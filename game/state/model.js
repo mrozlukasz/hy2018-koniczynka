@@ -83,10 +83,8 @@ function registerCoupons (senderId, coupons) {
 function findWinners (arr) {
     let PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
-    StateModel.find({}).exec( (err, state) => {
-        if(err) {
-            console.error(err);
-        } else {
+    StateModel.find({}, function(err, docs) {
+        if (!err){
             for (let c in state.coupons) {
                 console.log('c -> ', c);
                 let res = _.intersection(c.numbers, arr);
@@ -99,7 +97,7 @@ function findWinners (arr) {
 
                 conversation.sendTextMessage(request, state._id, "Wygrana!!! " + _.size(res) > 1, PAGE_ACCESS_TOKEN);
             }
-        }
+        } else {throw err;}
     });
 }
 
