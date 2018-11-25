@@ -31,7 +31,7 @@ exports.types = {
 };
 
 exports.subscribe = function (senderId, game) {
-    model.getOrCreate(senderId)
+    return model.getOrCreate(senderId)
         .then(state => {
             let game  = _(state.games).filter({code:game}).first();
 
