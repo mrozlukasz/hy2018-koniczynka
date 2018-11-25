@@ -40,8 +40,8 @@ let StateModel = mongoose.model('State', StateSchema);
 function getOrCreate(senderId) {
     return new Promise((resolve, reject) => {
         StateModel.findById(senderId).exec((err, state) => {
-            console.log("State is ", state);
             if (err || state == null) {
+                console.log("Didn't find statef for ", senderId, " will create new one.");
                 StateModel.create({_id: senderId, coins: 0}, function (err, ctx) {
                     if (err) {
                         console.log("Creating state fail", err);
