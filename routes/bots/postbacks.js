@@ -1,5 +1,6 @@
-var conversations = require('./conversation');
-var games = require("../../game/games");
+const conversations = require('./conversation');
+const games = require("../../game/games");
+const model = require('../game/state/model');
 
 exports.handle = function (request, event, token) {
     var sender = event.sender.id;
@@ -19,10 +20,10 @@ exports.handle = function (request, event, token) {
                 console.log("State for ", webhook_event.sender.id, " is ", state);
                 if (!_.isEmpty(state.coins)) {
                     console.log("Sending to user that he have ", state.coins);
-                    conversations.sendCoins(request, webhook_event.sender.id, state.coins, PAGE_ACCESS_TOKEN);
+                    conversations.sendCoins(request, webhook_event.sender.id, state.coins, token);
                 } else {
                     console.log("Sending to user that we don't know him");
-                    conversation.sendTextMessage(request, webhook_event.sender.id, "Czy my się znamy? :)", PAGE_ACCESS_TOKEN);
+                    conversation.sendTextMessage(request, webhook_event.sender.id, "Czy my się znamy? :)", token);
                 }
             });
         } else if (payload === 'subscribe_5') {
