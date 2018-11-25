@@ -100,6 +100,7 @@ function findWinners(arr) {
                         state.coins = state.coins + _.size(res) * 100;
                         console.log('win ', _.size(res));
                         conversation.sendTextMessage(request, c.userId, "Wygrana!!! " + res.length + " wygywający zestaw to " + _.join(c.numbers), PAGE_ACCESS_TOKEN);
+                        state.save();
                     } else {
                         console.log("loose");
                         conversation.sendTextMessage(request, c.userId, "Niestety, ale może następnym razem się uda", PAGE_ACCESS_TOKEN);
