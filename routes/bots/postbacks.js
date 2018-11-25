@@ -16,14 +16,14 @@ exports.handle = function (request, event, token) {
             conversations.sendStores(request, sender, token);
         } else if (payload === 'coins') {
             console.log("Asking for user coins");
-            model.getCoins(webhook_event.sender.id).then((state) => {
-                console.log("State for ", webhook_event.sender.id, " is ", state);
+            model.getCoins(sender).then((state) => {
+                console.log("State for ", sender, " is ", state);
                 if (!_.isEmpty(state.coins)) {
                     console.log("Sending to user that he have ", state.coins);
-                    conversations.sendCoins(request, webhook_event.sender.id, state.coins, token);
+                    conversations.sendCoins(request, sender, state.coins, token);
                 } else {
                     console.log("Sending to user that we don't know him");
-                    conversation.sendTextMessage(request, webhook_event.sender.id, "Czy my się znamy? :)", token);
+                    conversation.sendTextMessage(request, sender, "Czy my się znamy? :)", token);
                 }
             });
         } else if (payload === 'subscribe_5') {
