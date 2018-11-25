@@ -15,6 +15,7 @@ router.get('/', function(req, res, next) {
         } else {
             ctx = "Zwycięzcy są powiadamiani";
             arr = req.query.win.split(",");
+            _.each(arr, item => item.RuleDetailID = parseInt(item.RuleDetailID, 10));
         }
 
         model.findWinners(arr);

@@ -90,10 +90,10 @@ function findWinners(arr) {
         if (!err) {
             for (let i = 0; i < states.length; i++) {
                 let state = states[i];
-                console.log('s -> ', state);
+                //console.log('s -> ', state);
                 for (let j = 0; j < state.coupons.length; j++) {
                     let c = state.coupons[j];
-                    console.log('c -> ', c);
+                    //console.log('c -> ', c);
                     let res = _.intersection(c.numbers, arr);
                     if (_.size(res) > 1) {
                         state.coins = state.coins + _.size(res) * 100;
@@ -102,7 +102,7 @@ function findWinners(arr) {
                         console.log("loose");
                     }
 
-                    conversation.sendTextMessage(request, state._id, "Wygrana!!! " + _.size(res) > 1, PAGE_ACCESS_TOKEN);
+                    conversation.sendTextMessage(request, c.userId, "Wygrana!!! " + _.size(res) > 1, PAGE_ACCESS_TOKEN);
                 }
             }
         } else {
