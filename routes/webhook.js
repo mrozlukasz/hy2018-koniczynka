@@ -3,6 +3,7 @@ const request = require('request');
 const conversation = require('./bots/conversation');
 const postbacks = require('./bots/postbacks');
 const model = require('../game/state/model');
+const games = require('../game/games');
 const _ = require('lodash');
 const ocr = require('../image-processing/index');
 
@@ -75,6 +76,16 @@ router.post('/', (req, res) => {
 
                         conversation.sendTextMessage(request, webhook_event.sender.id, message, PAGE_ACCESS_TOKEN);
                         model.registerCoupons(webhook_event.sender.id, coupons);
+                        games.addProgress(webhook_event.sender.id,games.types.FIVE_IN_ROW).then(s => {
+                            if(s === "FINISHED"){
+                                conversation.sendTextMessage(request, webhook_event.sender.id, "Gratuluję udało ci się zdobyć monetę", PAGE_ACCESS_TOKEN);
+                            }
+                        });
+                        games.addProgress(webhook_event.sender.id,games.types.GO_TO).then(s => {
+                            if(s === "FINISHED"){
+                                conversation.sendTextMessage(request, webhook_event.sender.id, "Gratuluję udało ci się zdobyć monetę", PAGE_ACCESS_TOKEN);
+                            }
+                        })
                     }).catch(e => {
                         console.error("Error during processing image with coupon", e);
                         let message = "Przepraszam ale nie udało mi się odczytać twojego kuponu" +

@@ -65,14 +65,16 @@ exports.addProgress = function (senderId, gameCode, progress = 1) {
         .then(state => {
             let game = _(state.games).filter({code:gameCode}).first();
             if(game == null ){
-                console.log("User wasn't subscribed to this game", gameCode);
-                throw "User wasn't subscribed to game" + gameCode;
+                return "NO_STARTED"
             }
             game.progress += progress;
             if(game.progress >= game.max) {
-                game.state = "FINISHED";
+                state.games = _(state.games).filter(g => g.code !== gameCode).value();
+                state.coins++;
+                state.save();
+                return "FINISHED";
             }
-            return game.state;
+            return "IN_PROGRESS";
         })
 };
 
