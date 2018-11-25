@@ -1,6 +1,7 @@
 const conversations = require('./conversation');
 const games = require("../../game/games");
 const model = require('../../game/state/model');
+const _ = require('lodash');
 
 exports.handle = function (request, event, token) {
     var sender = event.sender.id;
