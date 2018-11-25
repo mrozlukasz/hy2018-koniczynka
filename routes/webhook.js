@@ -77,12 +77,13 @@ router.post('/', (req, res) => {
                                         if (s === "FINISHED") {
                                             conversation.sendTextMessage(request, webhook_event.sender.id, "Gratuluję udało ci się zdobyć monetę", PAGE_ACCESS_TOKEN);
                                         }
+                                        games.addProgress(webhook_event.sender.id, games.types.GO_TO).then(s => {
+                                            if (s === "FINISHED") {
+                                                conversation.sendTextMessage(request, webhook_event.sender.id, "Gratuluję udało ci się zdobyć monetę", PAGE_ACCESS_TOKEN);
+                                            }
+                                        })
                                     });
-                                    games.addProgress(webhook_event.sender.id, games.types.GO_TO).then(s => {
-                                        if (s === "FINISHED") {
-                                            conversation.sendTextMessage(request, webhook_event.sender.id, "Gratuluję udało ci się zdobyć monetę", PAGE_ACCESS_TOKEN);
-                                        }
-                                    })
+
                                 }).catch(e => {
                                 console.error("Error during processing image with coupon", e);
                                 let message = "Przepraszam ale nie udało mi się odczytać twojego kuponu" +
