@@ -1,3 +1,45 @@
+exports.sendWin = function(request, recipientId, game,  token) {
+    var messageData = {
+        messaging_type: "RESPONSE",
+        recipient: {
+            id: recipientId
+        },
+        message: {
+            attachment: {
+                type: "template",
+                payload: {
+                    template_type: "generic",
+                    elements: [{
+                        title: "Zdobywasz monetę!",
+                        subtitle: "" + game,
+                        item_url: "https://hy2018-koniczynka.herokuapp.com/",
+                        image_url: "https://hy2018-koniczynka.herokuapp.com/images/coins.png",
+                        buttons: [{
+                            "type":"postback",
+                            "title":"Moje monety",
+                            "payload":"coins"
+                        }]
+                    }]
+                }
+            }
+        }
+    };
+    request({
+        url: 'https://graph.facebook.com/v2.6/me/messages?access_token=' + token,
+        method: 'POST',
+        json: messageData
+
+    }, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            console.log("Successfully sent generic message with response  ");
+        } else {
+            console.error("Unable to send message.");
+            // console.error(response);
+            console.error(error);
+        }
+    });
+};
+
 exports.menuButtons = function (request, token) {
     var messageData = {
         "get_started": {
@@ -9,7 +51,7 @@ exports.menuButtons = function (request, token) {
                 "composer_input_disabled": false,
                 "call_to_actions": [
                     {
-                        "title": "Gry",
+                        "title": "Zagraj",
                         "type": "postback",
                         "payload": "games"
                     },
@@ -19,7 +61,7 @@ exports.menuButtons = function (request, token) {
                         "payload": "stations"
                     },
                     {
-                        "title": "Mój profil",
+                        "title": "Więcej",
                         "type": "nested",
                         "call_to_actions": [
                             {

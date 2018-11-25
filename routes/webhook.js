@@ -64,11 +64,13 @@ router.post('/', (req, res) => {
                                     model.registerCoupons(webhook_event.sender.id, coupons);
                                     games.addProgress(webhook_event.sender.id, games.types.FIVE_IN_ROW).then(s => {
                                         if (s === "FINISHED") {
-                                            conversation.sendTextMessage(request, webhook_event.sender.id, "Gratuluję udało ci ukończyć nie przegapić 5 losowań, zdobywasz monetę", PAGE_ACCESS_TOKEN);
+                                            conversation.sendWin(request, webhook_event.sender.id, "5 losowań", PAGE_ACCESS_TOKEN);
+                                            // conversation.sendTextMessage(request, webhook_event.sender.id, "Gratuluję udało ci ukończyć nie przegapić 5 losowań, zdobywasz monetę", PAGE_ACCESS_TOKEN);
                                         }
                                         games.addProgress(webhook_event.sender.id, games.types.GO_TO).then(s => {
                                             if (s === "FINISHED") {
-                                                conversation.sendTextMessage(request, webhook_event.sender.id, "Gratuluję udało ci się kupić kupon we wskazanej kolekturze, zdobywasz monetę", PAGE_ACCESS_TOKEN);
+                                                conversation.sendWin(request, webhook_event.sender.id, "Wskazana kolektura", PAGE_ACCESS_TOKEN);
+                                                // conversation.sendTextMessage(request, webhook_event.sender.id, "Gratuluję udało ci się kupić kupon we wskazanej kolekturze, zdobywasz monetę", PAGE_ACCESS_TOKEN);
                                             }
                                         })
                                     });
