@@ -36,7 +36,8 @@ exports.subscribe = function (senderId, gameCode) {
             let game  = _(state.games).filter({code:gameCode}).first();
 
             if (!game) {
-                state.games.push(GAMES[game]);
+                game = GAMES[gameCode];
+                state.games.push(game);
                 state.save();
                 return game;
             }else {
